@@ -20,7 +20,7 @@ function ArticlesCarousel() {
     };
 
     return (
-        <section>
+        <section className="sticky top-0">
             {/* <Swiper
                 spaceBetween={0}
                 slidesPerView={1}

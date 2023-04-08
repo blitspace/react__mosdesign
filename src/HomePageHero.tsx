@@ -3,7 +3,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 function HomePageHero({ title }: { title: string }) {
     return (
         <section
-            className="flex flex-col justify-between min-h-screen bg-center bg-cover"
+            className="sticky -top-[250px] flex flex-col justify-between min-h-screen bg-center bg-cover"
             style={{
             backgroundImage: "url(\'http://mosdesign.local/wp-content/uploads/2014/12/Home-header-2015.jpg\')",
         }}>
