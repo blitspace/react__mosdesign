@@ -5,10 +5,10 @@ export { fullScreenMenuOpen };
 
 const CONFIG = {
     menus: [
-        { label: 'Home', url: '#' },
+        { label: 'Home', url: '/' },
         { label: 'News', url: '#' },
         { label: 'Brands', url: '#' },
-        { label: 'About', url: '#' },
+        { label: 'About', url: 'about' },
         { label: 'Press', url: '#' },
         { label: 'Contact Us', url: '#' },
     ]

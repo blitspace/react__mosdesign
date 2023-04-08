@@ -16,5 +16,9 @@
   input {
     @apply p-2;
   }
+
+  a:hover {
+    @apply text-mos-red transition-colors;
+  }
 }
 

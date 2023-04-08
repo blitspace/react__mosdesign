@@ -6,13 +6,24 @@ import { useAtom } from "jotai";
 
 function TopBar() {
     const [ navOpen, setNavOpen ] = useAtom(fullScreenMenuOpen);
+    const bgClass = navOpen ? '' : 'bg-white/50 backdrop-blur-md';
 
     return (
-        <section className="fixed top-0 z-50 flex flex-row items-center justify-between w-full bg-white/50 py-mos-sm px-mos-md backdrop-blur-md">
-            <div><img src="http://mosdesign.local/wp-content/themes/mosdesign/img/final-mark.png" /></div>
+        <section className={`fixed top-0 z-50 flex flex-row items-center justify-between w-full py-mos-sm px-mos-md ${bgClass}`}>
+            <div>
+                {!navOpen
+                    ? <img src="http://mosdesign.local/wp-content/themes/mosdesign/img/final-mark.png" />
+                    : null
+                }
+            </div>
             <div className="flex flex-row gap-2">
-                <Link to={`/`}>Home</Link>
-                <Link to={`about`}>About</Link>
+                {!navOpen
+                    ? (<>
+                        <Link to={`/`}>Home</Link>
+                        <Link to={`about`}>About</Link>
+                    </>)
+                    : null
+                }
             </div>
             <div>
                 <button
