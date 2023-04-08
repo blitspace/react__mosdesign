@@ -4,14 +4,18 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import { ASSETS_SOURCE } from "./settings";
 
 function Footer() {
     return (
-        <section className="flex flex-col justify-between min-h-screen text-white bg-mos-footer px-mos-lg py-mos-md">
-            <div className="w-full mx-auto text-right max-w-mos-content">
-                <button className="font-sans text-right">TOP <KeyboardDoubleArrowUpIcon /></button>
+        <section className="flex flex-col justify-between min-h-screen text-white bg-mos-footer pb-mos-md">
+            <div className="sticky top-16">
+                <button className="w-full text-lg py-mos-sm bg-mos-red">Come and visit us&nbsp;<KeyboardArrowRightIcon /></button>
+            </div>
+            <div className="w-full mx-auto text-right max-w-mos-content pt-mos-md">
+                <button className="font-sans text-right">TOP&nbsp;<KeyboardDoubleArrowUpIcon /></button>
             </div>
             <div className="w-full mx-auto max-w-mos-content">
                 <div className="mb-mos-md">
