@@ -29,9 +29,10 @@ function ArticlesCarousel() {
                 modules={[Navigation, Pagination, EffectFade]}
                 navigation
                 pagination={pagination}
+                effect="fade"
+                loop={true}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
-                effect="fade"
             >
                 {data.records.map((i, idx) => (
                     <SwiperSlide key={idx}><ArticleCarouselItem data={i} /></SwiperSlide>)
