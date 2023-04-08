@@ -1,32 +1,16 @@
-import './App.css'
+import { ReactElement } from 'react';
+
 import Footer from './Footer'
-import About from './Pages/About';
-import Home from './Pages/Home';
 import TopBar from './TopBar'
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route
-} from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "about",
-    element: <About />,
-  },
-]);
+import './App.css'
 
 
-function App() {
+function App({ children }: { children: ReactElement }) {
   return (
     <div className="App">
       <TopBar />
-      <RouterProvider router={router} />
+      { children }
       <Footer />
     </div>
   )

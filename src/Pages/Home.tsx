@@ -1,7 +1,7 @@
 import HomePageHero from "../HomePageHero";
 
 function Home() {
-    return (<HomePageHero />);
+    return <HomePageHero />;
 }
 
 export default Home;
