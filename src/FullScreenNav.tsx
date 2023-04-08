@@ -30,8 +30,8 @@ const menu = {
 
 const menuLi = {
     open: {
-        y: 50,
-        opacity: 100,
+        y: 0,
+        opacity: 1,
         transition: {
             y: {
                 stiffness: 1000,
@@ -40,7 +40,7 @@ const menuLi = {
         }
     },
     closed: {
-        y: 0,
+        y: -50,
         opacity: 0,
         transition: {
             y: {
@@ -78,6 +78,7 @@ function FullScreenNav() {
 
     return (
         <motion.div
+            initial={false}
             variants={menu}
             className={`fixed top-0 bottom-0 left-0 right-0 z-40 justify-center bg-black/50 backdrop-blur-lg origin-top`}
             animate={navOpen ? 'open' : 'closed'}
@@ -94,7 +95,7 @@ function FullScreenNav() {
                                 key={idx}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="text-3xl font-light text-center text-gray-300"
+                                className="text-3xl text-center text-gray-300 xfont-light"
                             >
                                 <Link to={i.url} onClick={() => setNavOpen(false)}>{i.label}</Link>
                             </motion.li>

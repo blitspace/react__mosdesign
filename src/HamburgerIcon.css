@@ -2,8 +2,8 @@
 /* Icon 1 */
 
 :root {
-    --ham-span-transition: 0.25s;
-    --ham-transition: 0.75s;
+    --ham-span-transition: 0.5s;
+    --ham-transition: 1s;
 }
 
 #nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
