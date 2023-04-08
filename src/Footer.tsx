@@ -11,7 +11,8 @@ import { ASSETS_SOURCE } from "./settings";
 function Footer() {
     return (
         <section className="flex flex-col justify-between min-h-screen text-white bg-mos-footer pb-mos-md">
-            <div className="sticky top-16">
+            {/* TODO: find way to replace hardcoded value */}
+            <div className="sticky top-[77px]">
                 <button className="w-full text-lg py-mos-sm bg-mos-red">Come and visit us&nbsp;<KeyboardArrowRightIcon /></button>
             </div>
             <div className="w-full mx-auto text-right max-w-mos-content pt-mos-md">
