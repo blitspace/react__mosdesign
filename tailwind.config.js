@@ -41,5 +41,26 @@ export default {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
+    function({ addBase, theme }) {
+      // https://gist.github.com/Merott/d2a19b32db07565e94f10d13d11a8574
+      // Export color variables
+      // To use: var(--color-mos-red)
+      function extractColorVars(colorObj, colorGroup = '') {
+        return Object.keys(colorObj).reduce((vars, colorKey) => {
+          const value = colorObj[colorKey];
+
+          const newVars =
+            typeof value === 'string'
+              ? { [`--color${colorGroup}-${colorKey}`]: value }
+              : extractColorVars(value, `-${colorKey}`);
+
+          return { ...vars, ...newVars };
+        }, {});
+      }
+
+      addBase({
+        ':root': extractColorVars(theme('colors')),
+      });
+    },
   ],
 };

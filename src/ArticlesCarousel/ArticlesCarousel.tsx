@@ -1,15 +1,24 @@
-import { Navigation, Pagination, EffectFade } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
+import { Navigation, Pagination, EffectFade } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
-import data from "../public/articles.json";
+import "./styles.css";
+
+import data from "../../public/articles.json";
 import ArticleCarouselItem from "./ArticleCarouselItem";
 
 
 function ArticlesCarousel() {
+    const pagination: any = {
+        clickable: true,
+        renderBullet: function (index: string, className: string) {
+            return '<span class="bg-mos-red ' + className + '">' + "" + "</span>";
+        },
+    };
+
     return (
         <section>
             {/* <Swiper
@@ -19,7 +28,7 @@ function ArticlesCarousel() {
             <Swiper
                 modules={[Navigation, Pagination, EffectFade]}
                 navigation
-                pagination={{ clickable: true }}
+                pagination={pagination}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
                 effect="fade"

@@ -1,4 +1,4 @@
-import ArticlesCarousel from "../ArticlesCarousel";
+import ArticlesCarousel from "../ArticlesCarousel/ArticlesCarousel";
 import HomePageHero from "../HomePageHero";
 
 function Home() {
