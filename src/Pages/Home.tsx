@@ -1,7 +1,11 @@
+import ArticlesCarousel from "../ArticlesCarousel";
 import HomePageHero from "../HomePageHero";
 
 function Home() {
-    return <HomePageHero />;
+    return (<>
+        <HomePageHero title="We are MOs Design."/>
+        <ArticlesCarousel />
+    </>);
 }
 
 export default Home;
