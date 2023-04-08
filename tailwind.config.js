@@ -29,8 +29,10 @@ export default {
         'mos-lg': defaultTheme.spacing['16'],
       },
       maxWidth: {
-        'mos-content': defaultTheme.width['7xl'],
-        // 'mos-content': '900px',
+        // 'mos-content': defaultTheme.maxWidth['7xl'],
+        // TODO: check on how to reference default tailwind value
+        // max-width-7xl
+        'mos-content': '80rem',
       }
     },
   },

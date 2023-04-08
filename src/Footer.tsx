@@ -1,5 +1,9 @@
 import { red } from '@mui/material/colors';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 import { ASSETS_SOURCE } from "./settings";
 
@@ -13,7 +17,7 @@ function Footer() {
                 <div className="mb-mos-md">
                     <img src={`${ASSETS_SOURCE}/wp-content/themes/mosdesign/img/final-logo.png`} />
                 </div>
-                <div className="flex flex-row justify-between mb-mos-md">
+                <div className="flex flex-col justify-between md:flex-row mb-mos-md">
                     <div>
                         <p>
                             B2 9th Avenue<br />
@@ -32,9 +36,9 @@ function Footer() {
                     <div>
                         <p>
                             <em>Telephone</em><br />
-                            (632) 856.2748<br />
+                            (632) 812.123<br />
                             <em>Fax</em><br />
-                            (632) 856.7915<br />
+                            (632) 812.123<br />
                             <em>E-mail</em><br />
                             hello@mosdesign.com.ph
                         </p>
@@ -43,11 +47,17 @@ function Footer() {
                         <p>
                             Mobile<br />
                             <em>BoConcept</em><br />
-                            (+63) 917.572.7974<br />
+                            (+63) 912.345.6789<br />
                             <em>Natuzzi Italia</em><br />
-                            (+63) 917.572.7975<br />
+                            (+63) 912.345.6789<br />
                             <em>Other brands</em><br />
-                            (+63) 917.597.3525
+                            (+63) 912.345.6789
+                        </p>
+                        <p className="flex flex-row gap-4">
+                            <a href="/"><TwitterIcon /></a>
+                            <a href="/"><PinterestIcon /></a>
+                            <a href="/"><InstagramIcon /></a>
+                            <a href="/"><FacebookIcon /></a>
                         </p>
                     </div>
                 </div>
