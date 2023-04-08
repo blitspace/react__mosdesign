@@ -23,8 +23,10 @@ export default {
     extend: {
       colors: {
         'mos-footer': '#383638',
+        'mos-red': '#ED3A3A',
       },
       spacing: {
+        'mos-sm': defaultTheme.spacing['4'],
         'mos-md': defaultTheme.spacing['8'],
         'mos-lg': defaultTheme.spacing['16'],
       },

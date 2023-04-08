@@ -40,7 +40,7 @@ function Footer() {
                             <em>Fax</em><br />
                             (632) 812.123<br />
                             <em>E-mail</em><br />
-                            hello@mosdesign.com.ph
+                            hello@mosdesign.xyz
                         </p>
                     </div>
                     <div>
