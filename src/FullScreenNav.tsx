@@ -35,12 +35,12 @@ const menuLi = {
         transition: {
             y: {
                 stiffness: 1000,
-                velocity: -100,
+                // velocity: -100,
             }
         }
     },
     closed: {
-        y: -50,
+        y: -70,
         opacity: 0,
         transition: {
             y: {

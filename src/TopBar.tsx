@@ -37,10 +37,10 @@ const menuVariants = {
 
 const buttonVariants = {
     open: {
-        x: -50,
+        x: 50,
         opacity: 0,
         transition: {
-            duration: 0.3,
+            duration: .3,
         }
     },
     closed: {
@@ -48,7 +48,7 @@ const buttonVariants = {
         opacity: 1,
         color: "rgba(255,100,100,1)",
         transition: {
-            duration: 0.3,
+            duration: .3,
         }
     },
 }
