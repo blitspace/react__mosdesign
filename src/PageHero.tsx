@@ -1,11 +1,11 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-function HomePageHero({ title }: { title: string }) {
+function PageHero({ title, image }: { title: string, image: string }) {
     return (
         <section
             className="sticky -top-[250px] flex flex-col justify-between min-h-screen bg-center bg-cover"
             style={{
-            backgroundImage: "url(\'http://mosdesign.local/wp-content/uploads/2014/12/Home-header-2015.jpg\')",
+            backgroundImage: `url(\'${image}\')`,
         }}>
             <div></div>
             <div className="text-5xl text-center text-white mt-mos-lg py-mos-md">{ title }</div>
@@ -16,4 +16,4 @@ function HomePageHero({ title }: { title: string }) {
     );
 }
 
-export default HomePageHero;
+export default PageHero;

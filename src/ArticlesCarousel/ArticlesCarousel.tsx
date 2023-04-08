@@ -9,6 +9,7 @@ import "./styles.css";
 
 import data from "../../public/articles.json";
 import ArticleCarouselItem from "./ArticleCarouselItem";
+import StickySection from "../StickySection";
 
 
 function ArticlesCarousel() {
@@ -20,11 +21,7 @@ function ArticlesCarousel() {
     };
 
     return (
-        <section className="sticky top-0">
-            {/* <Swiper
-                spaceBetween={0}
-                slidesPerView={1}
-            > */}
+        <StickySection>
             <Swiper
                 modules={[Navigation, Pagination, EffectFade]}
                 navigation
@@ -38,7 +35,7 @@ function ArticlesCarousel() {
                     <SwiperSlide key={idx}><ArticleCarouselItem data={i} /></SwiperSlide>)
                 )}
             </Swiper>
-        </section>
+        </StickySection>
     );
 }
 

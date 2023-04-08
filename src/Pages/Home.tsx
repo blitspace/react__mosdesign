@@ -1,9 +1,9 @@
 import ArticlesCarousel from "../ArticlesCarousel/ArticlesCarousel";
-import HomePageHero from "../HomePageHero";
+import PageHero from "../PageHero";
 
 function Home() {
     return (<>
-        <HomePageHero title="We are MOs Design."/>
+        <PageHero title="We are MOs Design." image="http://mosdesign.local/wp-content/uploads/2014/12/Home-header-2015.jpg"/>
         <ArticlesCarousel />
     </>);
 }
