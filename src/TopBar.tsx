@@ -35,6 +35,25 @@ const menuVariants = {
     },
 }
 
+const buttonVariants = {
+    open: {
+        x: -50,
+        opacity: 0,
+        transition: {
+            duration: 0.3,
+        }
+    },
+    closed: {
+        y: 0,
+        opacity: 1,
+        color: "rgba(255,100,100,1)",
+        transition: {
+            duration: 0.3,
+        }
+    },
+}
+
+
 function TopBar() {
     const [ navOpen, setNavOpen ] = useAtom(fullScreenMenuOpen);
     const bgClass = navOpen ? '' : 'bg-white/50';
@@ -58,7 +77,7 @@ function TopBar() {
                     className="flex flex-row items-center uppercase xtext-mos-red"
                     onClick={() => setNavOpen(cur => !cur)}
                 >
-                    <span>Menu</span><HamburgerIcon open={navOpen} />
+                    <motion.span variants={buttonVariants}>Menu</motion.span><HamburgerIcon open={navOpen} />
                 </motion.button>
             </div>
         </motion.section>
