@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-function StickySection({ top, children }: { top?:number, children: ReactElement }) {
+function StickySection({ top, children }: { top?:number | string, children: ReactElement }) {
     return (
         <section className={`sticky top-${top || 0} bg-white`}>
             { children }
