@@ -11,6 +11,7 @@ import App from './App';
 import News from './Pages/News';
 
 import './index.css'
+import Article from './Pages/Article';
 
 const queryClient = new QueryClient();
 
@@ -26,19 +27,25 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <App><Home /></App>,
-        action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
+        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
         // errorElement: <div>Oops! There was an error.</div>,
     },
     {
         path: "about",
         element: <App><About /></App>,
-        action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
+        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
         // errorElement: <div>Oops! There was an error.</div>,
     },
     {
         path: "news",
         element: <App><News /></App>,
-        action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
+        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
+        // errorElement: <div>Oops! There was an error.</div>,
+    },
+    {
+        path: "news/:newsID",
+        element: <App><Article /></App>,
+        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
         // errorElement: <div>Oops! There was an error.</div>,
     },
 ]);

@@ -1,7 +1,7 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { ASSETS_SOURCE } from './settings';
 
-function PageHero({ title, image }: { title: string, image: string }) {
+function PageHero({ title, image }: { title?: string, image?: string }) {
     return (
         <section
             className="sticky -top-[250px] flex flex-col justify-between min-h-screen bg-center bg-cover"

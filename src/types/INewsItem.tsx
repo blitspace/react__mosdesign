@@ -21,12 +21,17 @@ interface INewsItem {
         article_brand_name: string,
         article_brand_slug: string,
     }
+    featured_image: {
+        ID: number,
+        guid: string,
+    },
     terms: {
         mos_post_date: Array<{
             ID: number
         }>,
         post_tag: Array<{
-            ID: number
+            ID: number,
+            name: string,
         }>,
         brand: Array<{
             ID: number
@@ -36,7 +41,8 @@ interface INewsItem {
             name: string,
             slug: string,
         }>,
-    }
+    },
+    source: string,
 }
 
 export default INewsItem;
