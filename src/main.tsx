@@ -13,6 +13,7 @@ import News from './Pages/News';
 import './index.css'
 import Article from './Pages/Article';
 import ScrollToTop from './Pages/ScrollToTop';
+import Brands from './Pages/Brands';
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,12 @@ const router = createBrowserRouter([
     {
         path: "article/:newsID",
         element: <App><Article /></App>,
+        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
+        // errorElement: <div>Oops! There was an error.</div>,
+    },
+    {
+        path: "brands",
+        element: <App><Brands /></App>,
         // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
         // errorElement: <div>Oops! There was an error.</div>,
     },
