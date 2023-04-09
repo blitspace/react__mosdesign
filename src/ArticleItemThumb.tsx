@@ -16,9 +16,9 @@ type ArticleItemThumbProps = {
 
 function ArticleItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, category, categoryUrl, image, url }: ArticleItemThumbProps) {
     return (
-        <div className="flex flex-col w-full aspect-square">
+        <div className="flex flex-col w-full aspect-square" title={(`${title} | ${subtitle}`) || ''}>
             <div
-                className="flex flex-col justify-between w-full overflow-hidden bg-center bg-cover aspect-square"
+                className="flex flex-col justify-between w-full overflow-hidden bg-center bg-cover aspect-square bg-slate-200"
                 style={{ backgroundImage: `url('${image}')`}}
             >
                 <div className="text-right p-mos-sm">

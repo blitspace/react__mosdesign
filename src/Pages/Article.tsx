@@ -32,8 +32,8 @@ function Article() {
         <StickySection top={'[88px]'}>
             <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">
                 <div className="mb-mos-sm"><Link to="/news" className="flex gap-2"><KeyboardBackspaceIcon /> Back</Link></div>
-                <article className="flex flex-row gap-6">
-                    <div className="w-1/5">
+                <article className="flex flex-col gap-6 md:flex-row">
+                    <div className="order-2 w-full md:w-1/5 md:order-1">
                         <div className="inline-block px-4 py-1 text-white uppercase rounded-full mb-mos-sm bg-mos-footer">{newsData.data?.terms.news_category[0].name}</div>
                         <div className="text-2xl mb-mos-sm">{newsData.data?.date.split('T')[0].split('-')[0]}</div>
                         <div className="text-2xl mb-mos-sm">{newsData.data?.extra_post_meta_data.article_brand_name}</div>
@@ -49,7 +49,7 @@ function Article() {
                             <a href="/"><FacebookIcon /></a>
                         </div>
                     </div>
-                    <div className="w-4/5">
+                    <div className="order-1 w-4/5 md:order-2">
                         <h1 className="text-4xl mb-mos-md">{newsData.data?.title}</h1>
                         <h3 className="text-2xl uppercase mb-mos-lg">{newsData.data?.extra_post_meta_data?.article_sub_title}</h3>
                         <div dangerouslySetInnerHTML={{ __html: newsData.data?.content || '' }} />

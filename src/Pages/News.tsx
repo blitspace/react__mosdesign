@@ -26,7 +26,7 @@ function News() {
         <PageHero title="News" image={`${ASSETS_SOURCE}/wp-content/uploads/2015/03/News-header.jpg`} />
         <StickySection top={'[88px]'}>
             <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">
-                <div className="grid grid-cols-2 gap-6 mb-mos-md">
+                <div className="grid gap-6 grid-col-1 md:grid-cols-2 mb-mos-md">
                     {newsData.isFetched && newsData.data?.map(news => (
                         <ArticleItemThumb
                             key={news.ID}
