@@ -12,6 +12,7 @@ import StickySection from "../StickySection";
 import PageHero from "../PageHero";
 import { Col1, Col2, ArticleLayoutCols2 } from "../Layouts/ArticleLayoutCols2";
 import { ASSETS_SOURCE } from "../settings";
+import { Header1, Header3 } from "../Headers";
 
 function Article() {
     const { newsID } = useParams();
@@ -50,8 +51,8 @@ function Article() {
                         </div>
                     </></Col1>
                     <Col2><>
-                        <h1 className="text-4xl mb-mos-md">{newsData.data?.title}</h1>
-                        <h3 className="text-2xl uppercase mb-mos-lg">{newsData.data?.extra_post_meta_data?.article_sub_title}</h3>
+                        <Header1>{newsData.data?.title}</Header1>
+                        <Header3>{newsData.data?.extra_post_meta_data?.article_sub_title}</Header3>
                         <div dangerouslySetInnerHTML={{ __html: newsData.data?.content || '' }} />
                     </></Col2>
                 </></ArticleLayoutCols2>

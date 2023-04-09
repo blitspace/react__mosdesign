@@ -14,6 +14,7 @@ import './index.css'
 import Article from './Pages/Article';
 import ScrollToTop from './Pages/ScrollToTop';
 import Brands from './Pages/Brands';
+import Brand from './Pages/Brand';
 
 const queryClient = new QueryClient();
 
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
     },
     {
         path: "brands/:brandID",
-        element: <App><Brands /></App>,
+        element: <App><Brand /></App>,
         // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
         // errorElement: <div>Oops! There was an error.</div>,
     },

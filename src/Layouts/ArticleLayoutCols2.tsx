@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 
 export function Col1({ children }: { children: ReactElement }) {
     return (
-        <div className="order-2 w-full md:w-1/5 md:order-1">
+        <div className="order-2 w-full md:w-1/5 md:order-1 ">
             {children}
         </div>
     );
