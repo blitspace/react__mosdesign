@@ -6,6 +6,7 @@ import TopBar from './TopBar'
 
 import './App.css'
 import FullScreenNav from './FullScreenNav';
+import ScrollToTop from './Pages/ScrollToTop';
 
 
 function App({ children }: { children: ReactElement }) {
@@ -13,6 +14,7 @@ function App({ children }: { children: ReactElement }) {
 
   return (
     <div className="relative App">
+      <ScrollToTop />
       <FullScreenNav />
       <TopBar />
       { children }

@@ -9,6 +9,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 function Article() {
     const { newsID } = useParams();
@@ -30,7 +31,7 @@ function Article() {
         />
         <StickySection top={'[88px]'}>
             <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">
-                <div className="mb-mos-sm"><Link to="/news">Back</Link></div>
+                <div className="mb-mos-sm"><Link to="/news" className="flex gap-2"><KeyboardBackspaceIcon /> Back</Link></div>
                 <article className="flex flex-row gap-6">
                     <div className="w-1/5">
                         <div className="inline-block px-4 py-1 text-white uppercase rounded-full mb-mos-sm bg-mos-footer">{newsData.data?.terms.news_category[0].name}</div>

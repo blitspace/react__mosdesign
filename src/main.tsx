@@ -12,6 +12,7 @@ import News from './Pages/News';
 
 import './index.css'
 import Article from './Pages/Article';
+import ScrollToTop from './Pages/ScrollToTop';
 
 const queryClient = new QueryClient();
 
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
         // errorElement: <div>Oops! There was an error.</div>,
     },
     {
-        path: "news/:newsID",
+        path: "article/:newsID",
         element: <App><Article /></App>,
         // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
         // errorElement: <div>Oops! There was an error.</div>,
@@ -58,11 +59,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-            <ThemeProvider theme={theme}>
-        <QueryClientProvider client={queryClient} contextSharing={true}>
+        <ThemeProvider theme={theme}>
+            <QueryClientProvider client={queryClient} contextSharing={true}>
                 <RouterProvider router={router} />
-            <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-            </ThemeProvider>
+                <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
+        </ThemeProvider>
     </React.StrictMode>,
 );
