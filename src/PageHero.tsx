@@ -1,5 +1,4 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { ASSETS_SOURCE } from './settings';
 
 function PageHero({ title, image }: { title?: string, image?: string }) {
     return (
