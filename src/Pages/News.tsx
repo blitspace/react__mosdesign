@@ -19,7 +19,6 @@ function News() {
     return (<>
         <PageHero title="News" image={`${ASSETS_SOURCE}/wp-content/uploads/2015/03/News-header.jpg`} />
         <StickySection top={'[88px]'}>
-            {/* <div className="min-h-screen p-mos-md"> */}
             <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">
                 <div className="grid grid-cols-2 gap-6">
                     {newsData.isFetched && newsData.data?.map(news => (
