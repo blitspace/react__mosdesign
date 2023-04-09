@@ -35,7 +35,6 @@ function News() {
                             yearUrl={`/news/date/${news.extra_post_meta_data?.q_date_slug}`}
                             brand={news.extra_post_meta_data?.article_brand_name}
                             brandUrl={`/brands/${news.extra_post_meta_data?.article_brand_slug}`}
-                            x={`/brands/${news.extra_post_meta_data?.article_brand_slug}`}
                         />
                     ))}
                 </div>
