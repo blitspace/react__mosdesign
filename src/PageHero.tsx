@@ -6,7 +6,7 @@ function PageHero({ title, image }: { title: string, image: string }) {
         <section
             className="sticky -top-[250px] flex flex-col justify-between min-h-screen bg-center bg-cover"
             style={{
-            backgroundImage: `url(\'${ASSETS_SOURCE}${image}\')`,
+            backgroundImage: `url(\'${image}\')`,
         }}>
             <div></div>
             <div className="text-5xl text-center text-white mt-mos-lg py-mos-md">

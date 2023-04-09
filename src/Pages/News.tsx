@@ -8,7 +8,8 @@ function News() {
     return (<>
         <PageHero title="News" image={`${ASSETS_SOURCE}/wp-content/uploads/2015/03/News-header.jpg`} />
         <StickySection top={'[88px]'}>
-            <div className="min-h-screen p-mos-md">
+            {/* <div className="min-h-screen p-mos-md"> */}
+            <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">
                 <div className="grid grid-cols-2 gap-6">
                     {[1, 2, 3, 4].map((i, idx) => (
                         <div key={idx} className="flex flex-col w-full aspect-square">
@@ -21,12 +22,14 @@ function News() {
                                 </div>
                                 <div className="flex flex-row p-mos-sm bg-white/40 backdrop-blur-sm">
                                     <div className="flex-grow">
-                                        <h3 className="text-2xl">Title {idx}</h3>
-                                        <div className="text-xl">Lorem Ipsum</div>
-                                        <div className="text-lg">2023 | Brand</div>
+                                        <h3 className="text-2xl mb-mos-xs">Title {idx}</h3>
+                                        <div className="text-xl font-light uppercase mb-mos-xs">Lorem Ipsum</div>
+                                        <div className="text-lg font-light">2023 | Brand</div>
                                     </div>
-                                    <div className="">
-                                        <Link className="w-5 h-5 border-2 rounded-full border-slate-600 aspect-square bg-slate-600" to=""><ChevronRightIcon /></Link>
+                                    <div className="w-[50px] flex flex-col justify-center">
+                                        <Link className="flex flex-col items-center justify-center w-full transition-colors border-2 rounded-full border-mos-red aspect-square hover:bg-mos-red" to="">
+                                            <ChevronRightIcon fontSize="large" className="text-mos-red hover:text-white" />
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
