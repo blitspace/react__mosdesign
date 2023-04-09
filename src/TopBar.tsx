@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { fullScreenMenuOpen } from "./data/config";
 import { useAtom } from "jotai";
 import { motion } from "framer-motion";
+import { ASSETS_SOURCE } from "./settings";
 
 const variants = {
     open: {
@@ -66,7 +67,7 @@ function TopBar() {
         >
             <div>
                 {!navOpen
-                    ? <img src="http://mosdesign.local/wp-content/themes/mosdesign/img/final-mark.png" />
+                    ? <img src={`${ASSETS_SOURCE}/wp-content/themes/mosdesign/img/final-mark.png`} />
                     : null
                 }
             </div>
