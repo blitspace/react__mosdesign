@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 type ArticleItemThumbProps = {
