@@ -62,6 +62,12 @@ const router = createBrowserRouter([
         // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
         // errorElement: <div>Oops! There was an error.</div>,
     },
+    {
+        path: "brands/:brandID",
+        element: <App><Brands /></App>,
+        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
+        // errorElement: <div>Oops! There was an error.</div>,
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
