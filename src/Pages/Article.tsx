@@ -22,7 +22,8 @@ function Article() {
     );
 
     if (newsData.isLoading) {
-        return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
+        // return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
+        return <PageHero isLoading={true} title="Loading..." image={`${ASSETS_SOURCE}/wp-content/uploads/2015/03/News-header.jpg`} />;
     }
 
     return (<>
