@@ -4,6 +4,7 @@ import PageHero from "../PageHero";
 import StickySection from "../StickySection";
 import ScrollToTop from "./ScrollToTop";
 
+
 function Error() {
     const navigate = useNavigate();
 
@@ -28,4 +29,3 @@ function Error() {
 }
 
 export default Error;
-

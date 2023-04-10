@@ -1,16 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
 import PageHero from "../PageHero";
 import StickySection from "../StickySection";
 import BrandItemThumb from "../BrandItemThumb";
-import IBrandItem from "../types/IBrandItem";
-import { ASSETS_SOURCE } from "../settings";
+import brandsQuery from "../queries/brands";
+
 
 function Brands() {
-    const brandsData = useQuery<IBrandItem[] | Error>(['brands', 'data'], () => {
-        let url = `${ASSETS_SOURCE}/wp-json/posts?type=mos_brands`;
-        return fetch(url)
-            .then(res => res.json())
-    });
+    const brandsData = brandsQuery();
 
     if (brandsData.isLoading) {
         return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;

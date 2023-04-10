@@ -1,20 +1,15 @@
 import { Link, useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 
-import { ASSETS_SOURCE } from "../settings";
-import IBrandItem from "../types/IBrandItem";
 import PageHero from "../PageHero";
 import StickySection from "../StickySection";
 import { ArticleLayoutCols2, Col1, Col2 } from "../Layouts/ArticleLayoutCols2";
-import { Header1 } from "../Headers";
 import MoreBrands from "../MoreBrands";
+import brandItemQuery from "../queries/brandItem";
+
 
 function Brand() {
     const { brandID } = useParams();
-    const brandData = useQuery<IBrandItem, Error>(['brand', brandID], () =>
-        fetch(`${ASSETS_SOURCE}/wp-json/posts/${brandID}`)
-            .then(res => res.json())
-    );
+    const brandData = brandItemQuery(brandID);
 
     if (brandData.isLoading) {
         return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;

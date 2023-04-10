@@ -13,13 +13,12 @@ import PageHero from "../PageHero";
 import { Col1, Col2, ArticleLayoutCols2 } from "../Layouts/ArticleLayoutCols2";
 import { ASSETS_SOURCE } from "../settings";
 import { Header1, Header3 } from "../Headers";
+import newsItemQuery from "../queries/newsItem";
+
 
 function Article() {
     const { newsID } = useParams();
-    const newsData = useQuery<INewsItem, Error>(['news', newsID], () =>
-        fetch(`${ASSETS_SOURCE}/wp-json/posts/${newsID}`)
-            .then(res => res.json())
-    );
+    const newsData = newsItemQuery(newsID);
 
     if (newsData.isLoading) {
         // return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;

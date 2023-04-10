@@ -1,15 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
 import BrandItemThumb from "./BrandItemThumb";
-import { ASSETS_SOURCE } from "./settings";
-import IBrandItem from "./types/IBrandItem";
+import brandsQuery from "./queries/brands";
 
 function MoreBrands() {
-    const brandsData = useQuery<IBrandItem[] | Error>(['brands', 'data'], () => {
-        let url = `${ASSETS_SOURCE}/wp-json/posts?type=mos_brands`;
-        return fetch(url)
-            .then(res => res.json())
-    });
+    const brandsData = brandsQuery();
 
     if (brandsData.isLoading) {
         return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;

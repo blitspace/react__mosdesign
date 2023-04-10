@@ -6,17 +6,13 @@ import { useQuery } from "@tanstack/react-query";
 import INewsItem from "../types/INewsItem";
 import { useParams } from "react-router-dom";
 import Pager from "../Pager";
+import newsQuery from "../queries/news";
 
 
 function News() {
     const { page } = useParams();
 
-    const newsData = useQuery<INewsItem[], Error>(['news', 'data', page], () => {
-        let _page = page ? `&page=${page}` : '';
-        let url = `http://mosdesign.local/wp-json/posts?type=mos_news${_page}`;
-        return fetch(url)
-            .then(res => res.json())
-    });
+    const newsData = newsQuery(page);
 
     if (newsData.isLoading) {
         // return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
