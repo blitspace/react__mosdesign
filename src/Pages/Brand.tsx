@@ -5,6 +5,7 @@ import StickySection from "../StickySection";
 import { ArticleLayoutCols2, Col1, Col2 } from "../Layouts/ArticleLayoutCols2";
 import MoreBrands from "../MoreBrands";
 import brandItemQuery from "../queries/brandItem";
+import BackLink from "../BackLink";
 
 
 function Brand() {
@@ -22,20 +23,24 @@ function Brand() {
         />
         <StickySection top={'[88px]'}><>
             <div className="w-full mx-auto min-h-fit max-w-mos-content px-mos-md py-mos-md">
-                {/* <Header1>{brandData.data?.title}</Header1> */}
+                <BackLink />
                 <div className="mb-mos-md"><img src={`${brandData.data?.brand_logo}`} /></div>
-                <ArticleLayoutCols2><>
-                    <Col1><>
-                        <ul>
-                            {[1, 2, 3, 4,].map(i => (<li className="mb-mos-sm">
-                                <Link to="#">Article Lorem {i}</Link>
-                            </li>))}
-                        </ul>
-                    </></Col1>
-                    <Col2><>
-                        <div dangerouslySetInnerHTML={{__html: brandData.data?.content || ''}} />
-                    </></Col2>
-                </></ArticleLayoutCols2>
+                <ArticleLayoutCols2>
+                    <>
+                        <Col1>
+                            <ul>
+                                {[1, 2, 3, 4,].map(i => (
+                                    <li className="mb-mos-sm" key={i}>
+                                        <Link to="#">Article Lorem {i}</Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </Col1>
+                        <Col2>
+                            <div dangerouslySetInnerHTML={{__html: brandData.data?.content || ''}} />
+                        </Col2>
+                    </>
+                </ArticleLayoutCols2>
             </div>
             <MoreBrands />
         </></StickySection>

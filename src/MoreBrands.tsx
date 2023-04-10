@@ -19,6 +19,7 @@ function MoreBrands() {
                             id={i.ID}
                             title={i.title}
                             image={i.extra_post_meta_data.square_featured_image}
+                            fontSize="2xl"
                         />
                     ))}
                 </div>
