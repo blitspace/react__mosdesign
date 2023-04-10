@@ -36,7 +36,8 @@ export default {
         // 'mos-content': defaultTheme.maxWidth['7xl'],
         // TODO: check on how to reference default tailwind value
         // max-width-7xl
-        'mos-content': '80rem',
+        // 'mos-content': defaultTheme.screens['lg'],
+        'mos-content': '1024px',
       }
     },
   },
@@ -66,3 +67,5 @@ export default {
     },
   ],
 };
+
+console.log(defaultTheme);
