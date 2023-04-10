@@ -7,6 +7,7 @@ import PageHero from "../PageHero";
 import StickySection from "../StickySection";
 import { ArticleLayoutCols2, Col1, Col2 } from "../Layouts/ArticleLayoutCols2";
 import { Header1 } from "../Headers";
+import MoreBrands from "../MoreBrands";
 
 function Brand() {
     const { brandID } = useParams();
@@ -24,8 +25,8 @@ function Brand() {
             title=""
             image={brandData.data?.featured_image.source}
         />
-        <StickySection top={'[88px]'}>
-            <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">
+        <StickySection top={'[88px]'}><>
+            <div className="w-full mx-auto min-h-fit max-w-mos-content px-mos-md py-mos-md">
                 {/* <Header1>{brandData.data?.title}</Header1> */}
                 <div className="mb-mos-md"><img src={`${brandData.data?.brand_logo}`} /></div>
                 <ArticleLayoutCols2><>
@@ -41,7 +42,8 @@ function Brand() {
                     </></Col2>
                 </></ArticleLayoutCols2>
             </div>
-        </StickySection>
+            <MoreBrands />
+        </></StickySection>
     </>);
 }
 
