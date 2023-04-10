@@ -42,7 +42,7 @@ function Brand() {
                     </>
                 </ArticleLayoutCols2>
             </div>
-            <MoreBrands />
+            <MoreBrands exclude={brandID} />
         </></StickySection>
     </>);
 }

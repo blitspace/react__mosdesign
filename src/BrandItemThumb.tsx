@@ -8,6 +8,9 @@ type BrandItemThumbProps = {
 };
 
 function BrandItemThumb({ id, title, image, fontSize = '3xl' }: BrandItemThumbProps) {
+    let mobileFontSize = (fontSize === '3xl')
+        ? 'text-2xl md:text-3xl'
+        : 'text-xl md:text-2xl';
     return (
         <div className="relative w-full aspect-square" title={`${title}`}>
             <Link
@@ -15,7 +18,7 @@ function BrandItemThumb({ id, title, image, fontSize = '3xl' }: BrandItemThumbPr
                 className="absolute top-0 bottom-0 left-0 right-0 transition-colors duration-300 group bg-black/10 hover:bg-black/60"
             >
                 <div className="flex flex-col items-center justify-center h-full">
-                    <div className={`text-${fontSize} font-semibold tracking-wider text-white uppercase transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100`}>{ title }</div>
+                    <div className={`${mobileFontSize} font-semibold tracking-wider text-white uppercase transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100`}>{ title }</div>
                 </div>
             </Link>
             <div

@@ -21,6 +21,9 @@ export default {
       'body': ['Lato', 'ui-serif'],
     },
     extend: {
+      inset: {
+        'below-nav': '77px',
+      },
       colors: {
         'mos-footer': '#383638',
         'mos-red': '#ED3A3A',

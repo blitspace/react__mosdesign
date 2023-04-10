@@ -18,7 +18,7 @@ function Brands() {
         />
         <StickySection top={'[88px]'}>
             <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">
-                <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">
+                <div className="w-full mx-auto max-w-mos-content">
                     <div className="grid gap-6 grid-col-1 md:grid-cols-2 mb-mos-md">
                         {brandsData.isFetched && brandsData?.data?.map(i => (
                             <BrandItemThumb

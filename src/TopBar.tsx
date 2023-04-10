@@ -67,7 +67,7 @@ function TopBar() {
         >
             <div>
                 {!navOpen
-                    ? <img src={`${ASSETS_SOURCE}/wp-content/themes/mosdesign/img/final-mark.png`} />
+                    ? <Link to="/"><img src={`${ASSETS_SOURCE}/wp-content/themes/mosdesign/img/final-mark.png`} /></Link>
                     : null
                 }
             </div>
