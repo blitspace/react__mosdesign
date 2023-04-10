@@ -16,7 +16,10 @@ function Footer() {
                 <button className="w-full text-lg py-mos-sm bg-mos-red">Come and visit us&nbsp;<KeyboardArrowRightIcon /></button>
             </div>
             <div className="w-full mx-auto text-right max-w-mos-content pt-mos-md sticky top-[140px] px-mos-md">
-                <button className="font-sans text-right">TOP&nbsp;<KeyboardDoubleArrowUpIcon /></button>
+                <button
+                    className="font-sans text-right"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >TOP&nbsp;<KeyboardDoubleArrowUpIcon /></button>
             </div>
             <div className="w-full mx-auto max-w-mos-content px-mos-md">
                 <div className="mb-mos-md">
