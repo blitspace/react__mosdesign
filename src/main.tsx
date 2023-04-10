@@ -5,16 +5,16 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Home from './Pages/Home';
-import About from './Pages/About';
 import App from './App';
+import Home from './Pages/Home';
 import News from './Pages/News';
-
-import './index.css'
+import About from './Pages/About';
 import Article from './Pages/Article';
-import ScrollToTop from './Pages/ScrollToTop';
 import Brands from './Pages/Brands';
 import Brand from './Pages/Brand';
+import Error from './Pages/Error';
+
+import './index.css'
 
 const queryClient = new QueryClient();
 
@@ -26,48 +26,45 @@ const theme = createTheme({
     },
 });
 
+const routerDefault = {
+    errorElement: <Error />,
+};
+
 const router = createBrowserRouter([
     {
+        ...routerDefault,
         path: "/",
         element: <App><Home /></App>,
-        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
-        // errorElement: <div>Oops! There was an error.</div>,
     },
     {
+        ...routerDefault,
         path: "about",
         element: <App><About /></App>,
-        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
-        // errorElement: <div>Oops! There was an error.</div>,
     },
     {
+        ...routerDefault,
         path: "news/",
         element: <App><News /></App>,
-        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
-        // errorElement: <div>Oops! There was an error.</div>,
     },
     {
+        ...routerDefault,
         path: "news/:page",
         element: <App><News /></App>,
-        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
-        // errorElement: <div>Oops! There was an error.</div>,
     },
     {
+        ...routerDefault,
         path: "article/:newsID",
         element: <App><Article /></App>,
-        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
-        // errorElement: <div>Oops! There was an error.</div>,
     },
     {
+        ...routerDefault,
         path: "brands",
         element: <App><Brands /></App>,
-        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
-        // errorElement: <div>Oops! There was an error.</div>,
     },
     {
+        ...routerDefault,
         path: "brands/:brandID",
         element: <App><Brand /></App>,
-        // action: () => queryClient.invalidateQueries({ queryKey: ['repoData'] }),
-        // errorElement: <div>Oops! There was an error.</div>,
     },
 ]);
 
