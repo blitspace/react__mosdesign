@@ -15,6 +15,7 @@ import { Header1, Header3 } from "../Headers";
 import newsItemQuery from "../queries/newsItem";
 import BackLink from "../BackLink";
 
+import ArticleTags from "../ArticleTags";
 
 function Article() {
     const { newsID } = useParams();
@@ -39,9 +40,11 @@ function Article() {
                         <div className="text-2xl mb-mos-sm">{newsData.data?.date.split('T')[0].split('-')[0]}</div>
                         <div className="text-2xl mb-mos-sm">{newsData.data?.extra_post_meta_data.article_brand_name}</div>
                         <div className="text-sm mb-mos-sm">
-                            <strong>Tags</strong> | {newsData.data?.terms.post_tag.map(i => (
-                                <Link className="inline-block mr-2 hover:underline" to={`/tags/${i.ID}`}><span><em>{i.name}</em></span>,</Link>
-                            ))}
+                            <strong>Tags</strong> | {
+                                newsData?.data?.terms
+                                    ? <ArticleTags postTag={newsData.data?.terms.post_tag} />
+                                    : null
+                            }
                         </div>
                         <div className="flex flex-row gap-4">
                             <a href="/"><TwitterIcon /></a>

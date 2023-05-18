@@ -1,3 +1,5 @@
+import INewsItemTerms from "./INewsItemTerms";
+
 interface INewsItem {
     ID: number,
     title: string,
@@ -25,23 +27,7 @@ interface INewsItem {
         ID: number,
         guid: string,
     },
-    terms: {
-        mos_post_date: Array<{
-            ID: number
-        }>,
-        post_tag: Array<{
-            ID: number,
-            name: string,
-        }>,
-        brand: Array<{
-            ID: number
-        }>,
-        news_category: Array<{
-            ID: number,
-            name: string,
-            slug: string,
-        }>,
-    },
+    terms: INewsItemTerms,
     source: string,
 }
 
