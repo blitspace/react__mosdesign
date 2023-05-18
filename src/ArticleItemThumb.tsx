@@ -32,10 +32,10 @@ function ArticleItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, cat
                     </div>
                     <div className="w-[50px] flex flex-col justify-center">
                         <Link
-                            className="flex flex-col items-center justify-center w-full transition-colors border-2 rounded-full border-mos-red aspect-square hover:bg-mos-red"
+                            className="flex flex-col items-center justify-center w-full transition-colors border-2 rounded-full group border-mos-footer aspect-square hover:bg-mos-red hover:border-mos-red"
                             to={url}
                         >
-                            <ChevronRightIcon fontSize="large" className="text-mos-red hover:text-white" />
+                            <ChevronRightIcon fontSize="large" className="text-mos-footer group-hover:text-white" />
                         </Link>
                     </div>
                 </div>

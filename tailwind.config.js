@@ -21,6 +21,9 @@ export default {
       'body': ['Lato', 'ui-serif'],
     },
     extend: {
+      inset: {
+        'below-nav': '77px',
+      },
       colors: {
         'mos-footer': '#383638',
         'mos-red': '#ED3A3A',
@@ -36,7 +39,8 @@ export default {
         // 'mos-content': defaultTheme.maxWidth['7xl'],
         // TODO: check on how to reference default tailwind value
         // max-width-7xl
-        'mos-content': '80rem',
+        // 'mos-content': defaultTheme.screens['lg'],
+        'mos-content': '1024px',
       }
     },
   },
@@ -66,3 +70,5 @@ export default {
     },
   ],
 };
+
+console.log(defaultTheme);

@@ -9,12 +9,12 @@ import FullScreenNav from './FullScreenNav';
 import ScrollToTop from './Pages/ScrollToTop';
 
 
-function App({ children }: { children: ReactElement }) {
+function App({ enableScrollToTop = true, children }: { enableScrollToTop?: boolean, children: ReactElement }) {
   const menuOpen = atom(false);
 
   return (
     <div className="relative App">
-      <ScrollToTop />
+      {enableScrollToTop && <ScrollToTop />}
       <FullScreenNav />
       <TopBar />
       { children }

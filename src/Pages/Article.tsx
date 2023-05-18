@@ -5,7 +5,6 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 import INewsItem from "../types/INewsItem";
 import StickySection from "../StickySection";
@@ -13,16 +12,17 @@ import PageHero from "../PageHero";
 import { Col1, Col2, ArticleLayoutCols2 } from "../Layouts/ArticleLayoutCols2";
 import { ASSETS_SOURCE } from "../settings";
 import { Header1, Header3 } from "../Headers";
+import newsItemQuery from "../queries/newsItem";
+import BackLink from "../BackLink";
+
 
 function Article() {
     const { newsID } = useParams();
-    const newsData = useQuery<INewsItem, Error>(['news', newsID], () =>
-        fetch(`${ASSETS_SOURCE}/wp-json/posts/${newsID}`)
-            .then(res => res.json())
-    );
+    const newsData = newsItemQuery(newsID);
 
     if (newsData.isLoading) {
-        return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
+        // return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
+        return <PageHero isLoading={true} title="Loading..." image={`${ASSETS_SOURCE}/wp-content/uploads/2015/03/News-header.jpg`} />;
     }
 
     return (<>
@@ -32,7 +32,7 @@ function Article() {
         />
         <StickySection top={'[88px]'}>
             <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">
-                <div className="mb-mos-sm"><Link to="/news" className="flex gap-2"><KeyboardBackspaceIcon /> Back</Link></div>
+                <BackLink />
                 <ArticleLayoutCols2><>
                     <Col1><>
                         <div className="inline-block px-4 py-1 text-white uppercase rounded-full mb-mos-sm bg-mos-footer">{newsData.data?.terms.news_category[0].name}</div>

@@ -12,6 +12,6 @@ export function Header1({ children }: THeaderContent) {
 
 export function Header3({ children }: THeaderContent) {
     return (
-        <h3 className="text-2xl uppercase text-slate-300 mb-mos-lg">{children}</h3>
+        <h3 className="text-2xl uppercase text-slate-600 mb-mos-lg">{children}</h3>
     );
 }

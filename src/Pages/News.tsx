@@ -4,22 +4,19 @@ import { ASSETS_SOURCE } from "../settings";
 import ArticleItemThumb from "../ArticleItemThumb";
 import { useQuery } from "@tanstack/react-query";
 import INewsItem from "../types/INewsItem";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Pager from "../Pager";
+import newsQuery from "../queries/news";
 
 
 function News() {
     const { page } = useParams();
 
-    const newsData = useQuery<INewsItem[], Error>(['news', 'data', page], () => {
-        let _page = page ? `&page=${page}` : '';
-        let url = `http://mosdesign.local/wp-json/posts?type=mos_news${_page}`;
-        return fetch(url)
-            .then(res => res.json())
-    });
+    const newsData = newsQuery(page);
 
     if (newsData.isLoading) {
-        return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
+        // return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
+        return <PageHero isLoading={true} title="Loading..." image={`${ASSETS_SOURCE}/wp-content/uploads/2015/03/News-header.jpg`} />;
     }
 
     return (<>
@@ -43,7 +40,7 @@ function News() {
                         />
                     ))}
                 </div>
-                <Pager data={[1, 2, 3, 4]} url="/news" />
+                <Pager data={[1, 2, 3, 4]} currentPage={parseInt(page || '1')} url="/news" />
             </div>
         </StickySection>
     </>);
