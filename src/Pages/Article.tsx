@@ -14,6 +14,7 @@ import { ASSETS_SOURCE } from "../settings";
 import { Header1, Header3 } from "../Headers";
 import newsItemQuery from "../queries/newsItem";
 import BackLink from "../BackLink";
+import routes from "../utils/routes";
 
 import ArticleTags from "../ArticleTags";
 
@@ -22,6 +23,7 @@ function Article() {
     const newsData = newsItemQuery(newsID);
     let year = '';
     let newsCategoryID = '';
+    let brandID = '';
 
     if (newsData.isLoading) {
         // return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
@@ -31,6 +33,7 @@ function Article() {
     if (newsData.isSuccess) {
         year = newsData.data?.date.split('T')[0].split('-')[0];
         newsCategoryID = newsData.data?.terms.news_category[0].ID.toString();
+        brandID = newsData.data?.terms.brand[0].ID.toString();
     }
 
     return (<>
@@ -48,20 +51,20 @@ function Article() {
                             className="inline-block px-4 py-1 text-white uppercase rounded-full mb-mos-sm bg-mos-footer hover:bg-mos-red"
                         >
                             <Link
-                                to={`/news/year/${newsCategoryID}`}
+                                to={routes.news.category(newsCategoryID)}
                                 className="hover:text-current"
                             >{newsData.data?.terms.news_category[0].name}</Link>
                         </div>
 
                         <div className="text-2xl mb-mos-sm">
                             <Link
-                                to={`/news/year/${year}`}
+                                to={routes.news.year(year)}
                             >{year}</Link>
                         </div>
 
                         <div className="text-2xl mb-mos-sm">
                             <Link
-                                to={`/news/brand/${newsData.data?.terms.brand[0].ID}`}
+                                to={routes.news.brand(brandID)}
                             >{newsData.data?.extra_post_meta_data.article_brand_name}</Link>
                         </div>
 
