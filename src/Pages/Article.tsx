@@ -20,10 +20,17 @@ import ArticleTags from "../ArticleTags";
 function Article() {
     const { newsID } = useParams();
     const newsData = newsItemQuery(newsID);
+    let year = '';
+    let newsCategoryID = '';
 
     if (newsData.isLoading) {
         // return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
         return <PageHero isLoading={true} title="Loading..." image={`${ASSETS_SOURCE}/wp-content/uploads/2015/03/News-header.jpg`} />;
+    }
+
+    if (newsData.isSuccess) {
+        year = newsData.data?.date.split('T')[0].split('-')[0];
+        newsCategoryID = newsData.data?.terms.news_category[0].ID.toString();
     }
 
     return (<>
@@ -33,12 +40,31 @@ function Article() {
         />
         <StickySection top={'[88px]'}>
             <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">
-                <BackLink />
+                <BackLink link="/news" />
+
                 <ArticleLayoutCols2><>
                     <Col1><>
-                        <div className="inline-block px-4 py-1 text-white uppercase rounded-full mb-mos-sm bg-mos-footer">{newsData.data?.terms.news_category[0].name}</div>
-                        <div className="text-2xl mb-mos-sm">{newsData.data?.date.split('T')[0].split('-')[0]}</div>
-                        <div className="text-2xl mb-mos-sm">{newsData.data?.extra_post_meta_data.article_brand_name}</div>
+                        <div
+                            className="inline-block px-4 py-1 text-white uppercase rounded-full mb-mos-sm bg-mos-footer hover:bg-mos-red"
+                        >
+                            <Link
+                                to={`/news/year/${newsCategoryID}`}
+                                className="hover:text-current"
+                            >{newsData.data?.terms.news_category[0].name}</Link>
+                        </div>
+
+                        <div className="text-2xl mb-mos-sm">
+                            <Link
+                                to={`/news/year/${year}`}
+                            >{year}</Link>
+                        </div>
+
+                        <div className="text-2xl mb-mos-sm">
+                            <Link
+                                to={`/news/brand/${newsData.data?.terms.brand[0].ID}`}
+                            >{newsData.data?.extra_post_meta_data.article_brand_name}</Link>
+                        </div>
+
                         <div className="text-sm mb-mos-sm">
                             <strong>Tags</strong> | {
                                 newsData?.data?.terms
