@@ -18,7 +18,7 @@ class News implements NewsRoutes {
     }
 
     category(ID: string): string {
-        return `/news/category/${ID}`;
+        return `/category/${ID}`;
     }
 }
 
