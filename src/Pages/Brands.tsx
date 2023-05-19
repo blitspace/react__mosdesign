@@ -2,7 +2,7 @@ import PageHero from "../PageHero";
 import StickySection from "../StickySection";
 import BrandItemThumb from "../BrandItemThumb";
 import brandsQuery from "../queries/brands";
-
+import { ASSETS_SOURCE } from "../settings";
 
 function Brands() {
     const brandsData = brandsQuery();
@@ -14,7 +14,7 @@ function Brands() {
     return (<>
         <PageHero
             title="Our Brands"
-            image="http://mosdesign.local/wp-content/uploads/2014/12/Brands-header.jpg"
+            image={`${ASSETS_SOURCE}/wp-content/uploads/2014/12/Brands-header.jpg`}
         />
         <StickySection top={'[88px]'}>
             <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">

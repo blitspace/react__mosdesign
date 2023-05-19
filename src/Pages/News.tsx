@@ -7,6 +7,7 @@ import INewsItem from "../types/INewsItem";
 import { useParams } from "react-router-dom";
 import Pager from "../Pager";
 import newsQuery from "../queries/news";
+import routes from "../utils/routes";
 
 
 function News() {
@@ -30,11 +31,11 @@ function News() {
                             title={news.extra_post_meta_data?.article_title}
                             subtitle={news.extra_post_meta_data?.article_sub_title}
                             category={news.terms?.news_category[0].name}
-                            categoryUrl={`/category/${news.terms?.news_category[0].slug}`}
+                            categoryUrl={routes.news.category(news.terms?.news_category[0].ID)}
                             image={news.extra_post_meta_data?.square_featured_image}
-                            url={`/article/${news.ID}`}
+                            url={routes.news.article(news.ID)}
                             year={news.extra_post_meta_data?.q_date_name}
-                            yearUrl={`/news/date/${news.extra_post_meta_data?.q_date_slug}`}
+                            yearUrl={routes.news.year(news.extra_post_meta_data?.q_date_slug)}
                             brand={news.extra_post_meta_data?.article_brand_name}
                             brandUrl={`/brands/${news.extra_post_meta_data?.article_brand_slug}`}
                         />

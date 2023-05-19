@@ -10,11 +10,17 @@ import Brand from './Pages/Brand';
 import Error from './Pages/Error';
 
 
+function routerPath(): string {
+    return '';
+}
+
+
 const routerDefault = {
     errorElement: <Error />,
 };
 
- const browserRoute = createBrowserRouter([
+
+const browserRoute = createBrowserRouter([
     {
         ...routerDefault,
         path: "/",

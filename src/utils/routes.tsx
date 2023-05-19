@@ -1,24 +1,34 @@
 interface NewsRoutes {
-    year(ID: string): string;
-    tag(ID: string): string;
-    category(ID: string): string;
+    readonly path: string;
+
+    year(ID: string | number): string;
+    tag(ID: string | number): string;
+    brand(ID: string | number): string;
+    category(ID: string | number): string;
+    article(ID: string | number): string;
 }
 
 class News implements NewsRoutes {
-    year(ID: string): string {
-        return `/news/year/${ID}`;
+    readonly path: string = 'news';
+
+    year(ID: string | number): string {
+        return `/${this.path}/year/${ID}`;
     }
 
-    tag(ID: string): string {
-        return `/news/tags/${ID}`;
+    tag(ID: string | number): string {
+        return `/${this.path}/tags/${ID}`;
     }
 
-    brand(ID: string): string {
-        return `/news/brand/${ID}`;
+    brand(ID: string | number): string {
+        return `/${this.path}/brand/${ID}`;
     }
 
-    category(ID: string): string {
+    category(ID: string | number): string {
         return `/category/${ID}`;
+    }
+
+    article(ID: string | number): string {
+        return `/article/${ID}`;
     }
 }
 
