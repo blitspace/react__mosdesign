@@ -1,17 +1,33 @@
 interface IRoutes {
-    readonly pathSingular: string;
-    readonly pathPlural: string;
+    pathSingular: string;
+    pathPlural: string;
+
+    index(ID: string | number): string;
 
     year?(ID: string | number): string;
     tag?(ID: string | number): string;
-    index?(ID: string | number): string;
     category?(ID: string | number): string;
     article?(ID: string | number): string;
 }
 
-class News implements IRoutes {
-    readonly pathSingular: string = 'news';
-    readonly pathPlural: string = 'news';
+class BaseRouteClass implements IRoutes {
+    pathSingular: string;
+    pathPlural: string;
+
+    constructor(pathSingular: string, pathPlural: string) {
+        this.pathSingular = pathSingular;
+        this.pathPlural = pathPlural;
+    }
+
+    index(ID: string | number): string {
+        return `${this.pathPlural}`;
+    }
+}
+
+class News extends BaseRouteClass {
+    index(ID: string | number): string {
+        return `/${this.pathPlural}`;
+    }
 
     year(ID: string | number): string {
         return `/${this.pathPlural}/year/${ID}`;
@@ -19,10 +35,6 @@ class News implements IRoutes {
 
     tag(ID: string | number): string {
         return `/${this.pathPlural}/tags/${ID}`;
-    }
-
-    index(ID: string | number): string {
-        return `/${this.pathPlural}/brand/${ID}`;
     }
 
     category(ID: string | number): string {
@@ -34,7 +46,7 @@ class News implements IRoutes {
     }
 }
 
-class Brands implements IRoutes {
+class Brands extends BaseRouteClass {
     readonly pathSingular: string = 'brand';
     readonly pathPlural: string = 'brands';
 
@@ -44,8 +56,8 @@ class Brands implements IRoutes {
 }
 
 const routes = {
-    news: new News(),
-    brands: new Brands(),
+    news: new News('news', 'news'),
+    brands: new Brands('brand', 'brands'),
 }
 
 export default routes;
