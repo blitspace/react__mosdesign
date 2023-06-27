@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import INewsItem from "../types/INewsItem";
 import { useParams } from "react-router-dom";
 import Pager from "../Pager";
-import newsQuery from "../queries/news";
+import newsQuery from "../queries/newsQuery";
 import routes from "../utils/routes";
 import useQueryParams from "../hooks/queryParams";
 
@@ -37,36 +37,74 @@ function NewsIndex() {
         <StickySection top={'[88px]'}>
             <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">
                 <div className="grid gap-6 grid-col-1 md:grid-cols-2 mb-mos-md">
-                    {newsData.isFetched && newsData.data?.map(news => {
-                        const id = news.ID;
-                        const title = news.extra_post_meta_data?.article_title;
-                        const subtitle = news.extra_post_meta_data?.article_sub_title;
-                        const category = news.terms?.news_category[0].name;
-                        const categoryUrl = routes.news.category(news.terms?.news_category[0].ID);
-                        const image = news.extra_post_meta_data?.square_featured_image;
-                        const articleUrl = routes.news.article(news.ID);
-                        const year = news.extra_post_meta_data?.q_date_name;
-                        const yearUrl = routes.news.year(news.extra_post_meta_data?.q_date_slug);
-                        const brandName = news.extra_post_meta_data?.article_brand_name;
-                        const brandUrl = routes.brands.index(news.extra_post_meta_data?.article_brand_slug);
+                    {
+                        newsData.isFetched && newsData.data?.newsItems?.map((news: INewsItem) => {
+                            const id = news.id;
+                            const title = news.title.rendered;
 
-                        return (
-                            <ArticleItemThumb
-                                key={id}
-                                title={title}
-                                subtitle={subtitle}
-                                category={category}
-                                categoryUrl={categoryUrl}
-                                image={image}
-                                url={articleUrl}
-                                year={year}
-                                yearUrl={yearUrl}
-                                brand={brandName}
-                                brandUrl={brandUrl}
-                            />);
-                        })}
+                            const subtitle = '';
+                            const category = news.type;
+                            // const categoryUrl = routes.news.category();
+                            const categoryUrl = '';
+                            const image = news.featured_img_url;
+                            const articleUrl = routes.news.article(news.id);;
+                            const year = news.date.split(':')[0].split('-')[0];
+                            const yearUrl = routes.news.year(year);
+                            const brandName = '';
+                            const brandUrl = '';
+                            // const brandUrl = routes.brands.index(news.extra_post_meta_data?.article_brand_slug);
+
+
+                            return (
+                                <ArticleItemThumb
+                                    key={id}
+                                    title={title}
+                                    subtitle={subtitle}
+                                    category={category}
+                                    categoryUrl={categoryUrl}
+                                    image={image}
+                                    url={articleUrl}
+                                    year={year}
+                                    yearUrl={yearUrl}
+                                    brand={brandName}
+                                    brandUrl={brandUrl}
+                                />
+                            );
+                        })
+                    }
+                    {/* {newsData.isFetched && newsData.data?.map((news: INewsItem) => {
+                        // const id = news.id;
+                        // const title = news.title;
+                        console.log('=>', news);
+                        // const subtitle = '';
+                        // const category = '';
+                        // const categoryUrl = '';
+                        // const image = '';
+                        // const articleUrl = '';
+                        // const year = '';
+                        // const yearUrl = '';
+                        // const brandName = '';
+                        // const brandUrl = '';
+                        // const brandUrl = routes.brands.index(news.extra_post_meta_data?.article_brand_slug);
+
+                        return (<div key={news.id}>{news.title}</div>);
+                            // <ArticleItemThumb
+                            //     key={id}
+                            //     title={title}
+                            //     subtitle={subtitle}
+                            //     category={category}
+                            //     categoryUrl={categoryUrl}
+                            //     image={image}
+                            //     url={articleUrl}
+                            //     year={year}
+                            //     yearUrl={yearUrl}
+                            //     brand={brandName}
+                            //     brandUrl={brandUrl}
+                            // />);
+                        // );
+                    })} */}
                 </div>
-                <Pager data={[1, 2, 3, 4]} currentPage={parseInt(page || '1')} url="/news" />
+                <Pager data={[...Array(parseInt(newsData.data?.totalPages)).keys()]} currentPage={parseInt(page || '1')} url="/news" />
             </div>
         </StickySection>
     </>);

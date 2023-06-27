@@ -1,8 +1,8 @@
 import INewsItemTerms from "./INewsItemTerms";
 
 interface INewsItem {
-    ID: number,
-    title: string,
+    id: number,
+    title: { rendered: string },
     status: string,
     type: string,
     author: {
@@ -27,8 +27,10 @@ interface INewsItem {
         ID: number,
         guid: string,
     },
+    featured_img_url: string,
     terms: INewsItemTerms,
     source: string,
+    tags: number[],
 }
 
 export default INewsItem;

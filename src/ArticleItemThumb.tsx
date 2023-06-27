@@ -18,7 +18,7 @@ function ArticleItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, cat
     return (
         <div className="flex flex-col w-full aspect-square" title={(`${title} | ${subtitle}`) || ''}>
             <div
-                className="flex flex-col justify-between w-full overflow-hidden bg-center bg-cover aspect-square bg-slate-200"
+                className="flex flex-col justify-between w-full overflow-hidden bg-center bg-cover bg-slate-200 aspect-square"
                 style={{ backgroundImage: `url('${image}')`}}
             >
                 <div className="text-right p-mos-sm">
