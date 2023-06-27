@@ -1,4 +1,4 @@
-const ASSETS_SOURCE = 'http://v-mosdesign.local';
+const ASSETS_SOURCE = 'http://localhost:81';
 
 export {
     ASSETS_SOURCE,

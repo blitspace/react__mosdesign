@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import INewsItem from "../types/INewsItem";
+
 import { ASSETS_SOURCE } from "../settings";
 
 const newsQuery = (page: number | string | undefined) => {
