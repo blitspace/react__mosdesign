@@ -4,15 +4,17 @@ import PageHero from "../PageHero";
 import StickySection from "../StickySection";
 import ScrollToTop from "./ScrollToTop";
 
+import { ASSETS_SOURCE } from "../settings";
 
 function Error() {
     const navigate = useNavigate();
+    const headerImage = `${ASSETS_SOURCE}/wp-content/themes/mosdesign/img/hero-shot-placeholder.jpg`;
 
     return (<App enableScrollToTop={false}><>
         <ScrollToTop val={400} />
         <PageHero
             title=""
-            image="http://mosdesign.local/wp-content/themes/mosdesign/img/hero-shot-placeholder.jpg"
+            image={headerImage}
         />
         <StickySection top={'[88px]'}>
             <div className="w-full mx-auto text-2xl min-h-fit max-w-mos-content px-mos-md py-mos-md">
