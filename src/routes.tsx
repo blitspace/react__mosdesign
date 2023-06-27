@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from './App';
 import Home from './Pages/Home';
-import News from './Pages/News';
+import NewsIndex from './Pages/NewsIndex';
 import About from './Pages/About';
 import Article from './Pages/Article';
 import Brands from './Pages/Brands';
@@ -34,12 +34,12 @@ const browserRoute = createBrowserRouter([
     {
         ...routerDefault,
         path: "news/",
-        element: <App><News /></App>,
+        element: <App><NewsIndex /></App>,
     },
     {
         ...routerDefault,
         path: "news/:page",
-        element: <App><News /></App>,
+        element: <App><NewsIndex /></App>,
     },
     {
         ...routerDefault,

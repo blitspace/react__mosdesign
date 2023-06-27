@@ -64,7 +64,7 @@ function Article() {
 
                         <div className="text-2xl mb-mos-sm">
                             <Link
-                                to={routes.news.brand(brandID)}
+                                to={routes.brands.index(brandID)}
                             >{newsData.data?.extra_post_meta_data.article_brand_name}</Link>
                         </div>
 

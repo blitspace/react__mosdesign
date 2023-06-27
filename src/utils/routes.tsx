@@ -47,7 +47,7 @@ class News extends BaseRouteClass {
 }
 
 class Brands extends BaseRouteClass {
-    readonly pathSingular: string = 'brand';
+    readonly pathSingular: string = 'brands';
     readonly pathPlural: string = 'brands';
 
     index(ID: string | number): string {

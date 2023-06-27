@@ -11,7 +11,7 @@ import routes from "../utils/routes";
 import useQueryParams from "../hooks/queryParams";
 
 
-function News() {
+function NewsIndex() {
     const queryParams = useQueryParams();
     const { page } = useParams();
 
@@ -72,4 +72,4 @@ function News() {
     </>);
 }
 
-export default News;
+export default NewsIndex;
