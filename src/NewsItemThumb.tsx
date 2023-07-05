@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
-type ArticleItemThumbProps = {
+type NewsItemThumbProps = {
     title: string,
     subtitle: string,
     category: string,
@@ -14,7 +14,7 @@ type ArticleItemThumbProps = {
     categoryUrl: string,
 }
 
-function ArticleItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, category, categoryUrl, image, url }: ArticleItemThumbProps) {
+function NewsItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, category, categoryUrl, image, url }: NewsItemThumbProps) {
     return (
         <div className="flex flex-col w-full aspect-square" title={(`${title} | ${subtitle}`) || ''}>
             <div
@@ -44,4 +44,4 @@ function ArticleItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, cat
     );
 }
 
-export default ArticleItemThumb;
+export default NewsItemThumb;

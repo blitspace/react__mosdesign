@@ -1,7 +1,7 @@
 import PageHero from "../PageHero";
 import StickySection from "../StickySection";
 import { ASSETS_SOURCE } from "../settings";
-import ArticleItemThumb from "../ArticleItemThumb";
+import NewsItemThumb from "../NewsItemThumb";
 import { useQuery } from "@tanstack/react-query";
 import INewsItem from "../types/INewsItem";
 import { useParams } from "react-router-dom";
@@ -59,7 +59,7 @@ function NewsIndex() {
 
 
                             return (
-                                <ArticleItemThumb
+                                <NewsItemThumb
                                     key={id}
                                     title={title}
                                     subtitle={subtitle}
