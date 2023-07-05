@@ -17,6 +17,7 @@ import BackLink from "../BackLink";
 import routes from "../utils/routes";
 
 import ArticleTags from "../ArticleTags";
+import utils from "../utils/utils";
 
 function Article() {
     const { newsID } = useParams();
@@ -24,6 +25,7 @@ function Article() {
     let year = '';
     let newsCategoryID = '';
     let brandID = '';
+    let data: INewsItem | undefined = undefined;
 
     if (newsData.isLoading) {
         // return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
@@ -31,15 +33,16 @@ function Article() {
     }
 
     if (newsData.isSuccess) {
-        year = newsData.data?.date.split('T')[0].split('-')[0];
-        newsCategoryID = newsData.data?.terms.news_category[0].ID.toString();
-        brandID = newsData.data?.terms.brand[0].ID.toString();
+        data = newsData.data[0];
+        newsCategoryID = '123';
+        brandID = 'qwe';
+        console.log(newsData.data);
     }
 
     return (<>
         <PageHero
             title=""
-            image={newsData.data?.featured_image.guid}
+            image={newsData.data[0]?.featured_img_url}
         />
         <StickySection top={'[88px]'}>
             <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">
@@ -53,7 +56,7 @@ function Article() {
                             <Link
                                 to={routes.news.category(newsCategoryID)}
                                 className="hover:text-current"
-                            >{newsData.data?.terms.news_category[0].name}</Link>
+                            >{data?.extra_meta.news_category.name}</Link>
                         </div>
 
                         <div className="text-2xl mb-mos-sm">
@@ -65,16 +68,22 @@ function Article() {
                         <div className="text-2xl mb-mos-sm">
                             <Link
                                 to={routes.brands.index(brandID)}
-                            >{newsData.data?.extra_post_meta_data.article_brand_name}</Link>
+                            >{data?.extra_meta.article_brand_name}</Link>
                         </div>
 
                         <div className="text-sm mb-mos-sm">
                             <strong>Tags</strong> | {
-                                newsData?.data?.terms
-                                    ? <ArticleTags postTag={newsData.data?.terms.post_tag} />
+                                data?.tags
+                                    ? <ArticleTags postTag={data?.tags.map(i => {
+                                        return {
+                                            ID: i,
+                                            name: 'name' + i,
+                                        }
+                                    })} />
                                     : null
                             }
                         </div>
+
                         <div className="flex flex-row gap-4">
                             <a href="/"><TwitterIcon /></a>
                             <a href="/"><PinterestIcon /></a>
@@ -83,9 +92,9 @@ function Article() {
                         </div>
                     </></Col1>
                     <Col2><>
-                        <Header1>{newsData.data?.title}</Header1>
-                        <Header3>{newsData.data?.extra_post_meta_data?.article_sub_title}</Header3>
-                        <div dangerouslySetInnerHTML={{ __html: newsData.data?.content || '' }} />
+                        <Header1>{utils.htmlEntities(data?.title.rendered)}</Header1>
+                        <Header3>{utils.htmlEntities(data?.extra_meta?.article_sub_title)}</Header3>
+                        <div dangerouslySetInnerHTML={{ __html: data?.content.rendered || '' }} />
                     </></Col2>
                 </></ArticleLayoutCols2>
             </div>

@@ -43,7 +43,7 @@ const browserRoute = createBrowserRouter([
     },
     {
         ...routerDefault,
-        path: "article/:newsID",
+        path: "news-article/:newsID",
         element: <App><Article /></App>,
     },
     {

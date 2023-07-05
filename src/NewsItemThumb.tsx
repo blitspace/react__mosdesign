@@ -22,7 +22,10 @@ function NewsItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, catego
                 style={{ backgroundImage: `url('${image}')`}}
             >
                 <div className="text-right p-mos-sm">
-                    <Link className="px-4 py-2 text-sm text-white uppercase rounded-full bg-mos-footer" to={categoryUrl}>{category}</Link>
+                    <Link
+                        className="px-4 py-2 text-sm text-white uppercase rounded-full bg-mos-footer"
+                        to={categoryUrl}
+                    >{category}</Link>
                 </div>
                 <div className="flex flex-row gap-4 p-mos-sm bg-white/80 backdrop-blur-sm">
                     <div className="flex-grow">

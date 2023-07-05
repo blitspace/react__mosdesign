@@ -42,7 +42,7 @@ class News extends BaseRouteClass {
     }
 
     article(ID: string | number): string {
-        return `/article/${ID}`;
+        return `/news-article/${ID}`;
     }
 }
 
