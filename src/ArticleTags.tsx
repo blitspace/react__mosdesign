@@ -8,6 +8,7 @@ function ArticleTags({ postTag } : { postTag: IPost_Tag[] }) {
           className="inline-block mr-1 hover:underline"
           // to={`/tags/${i.ID}`}
           to={routes.news.tag(i.ID.toString())}
+          key={i.ID}
         ><span><em>{i.name}</em></span>{indx !== (arry.length - 1) ? ',' : ''}</Link>
     ))}</>;
 }
