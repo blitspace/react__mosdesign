@@ -6,12 +6,17 @@ import { ASSETS_SOURCE } from "../settings";
 type TNewsQuery = {
     data: {
         newsItems: INewsItem[],
+        totalItems: number,
         totalPages: number
     }
 };
 
+type Params = {
+  queryKey: [string, { id: number }];
+};
+
 const newsQuery = (page: string | undefined) => {
-    return useQuery<TNewsQuery, Error>(['news', 'data', page], async () => {
+    return useQuery<TNewsQuery, Error>(['news', 'data', page], async (params: Params) => {
         let __page = typeof page !== 'undefined'
             ? parseInt(page) ? parseInt(page) + 1 : 0
             : null;
