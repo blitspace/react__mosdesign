@@ -94,7 +94,9 @@ function Article() {
                     <Col2><>
                         <Header1>{utils.htmlEntities(data?.title.rendered)}</Header1>
                         <Header3>{utils.htmlEntities(data?.extra_meta?.article_sub_title)}</Header3>
-                        <div dangerouslySetInnerHTML={{ __html: data?.content.rendered || '' }} />
+                        <div
+                            dangerouslySetInnerHTML={{ __html: data?.content.rendered.replaceAll('<p>&nbsp;</p>', '') || '' }}
+                        />
                     </></Col2>
                 </></ArticleLayoutCols2>
             </div>
