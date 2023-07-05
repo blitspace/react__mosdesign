@@ -31,7 +31,7 @@ function Article() {
     let newsCategoryID = '';
     let brandID = '';
     let data: INewsItem | undefined = undefined;
-    let articleTags: IPost_Tag[];
+    let articleTags: IPost_Tag[] = [];
 
 
     if (newsData.isLoading) {
@@ -41,7 +41,7 @@ function Article() {
 
     if (newsData.isSuccess) {
         data = newsData.data[0];
-        year = data?.extra_meta?.q_date_name;
+        year = data?.extra_meta?.q_date_name ?? '';
         newsCategoryID = '123';
         brandID = 'qwe';
     }
@@ -51,13 +51,13 @@ function Article() {
             const search = tagsData.data?.filter(j => j.ID == i);
 
             return search.length ? search[0] : undefined;
-        });
+        }) ?? [];
     }
 
     return (<>
         <PageHero
             title=""
-            image={newsData.data[0]?.featured_img_url}
+            image={ newsData.data[0]?.featured_img_url}
         />
         <StickySection top={'[88px]'}>
             <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">
@@ -76,20 +76,20 @@ function Article() {
 
                         <div className="text-2xl mb-mos-sm">
                             <Link
-                                to={routes.news.year(year)}
+                                to={ routes.news.year(year) }
                             >{year}</Link>
                         </div>
 
                         <div className="text-2xl mb-mos-sm">
                             <Link
-                                to={routes.brands.index(brandID)}
-                            >{data?.extra_meta.article_brand_name}</Link>
+                                to={ routes.brands.index(brandID) }
+                            >{ data?.extra_meta.article_brand_name }</Link>
                         </div>
 
                         <div className="text-sm mb-mos-sm">
                             <strong>Tags</strong> | {
                                 data?.tags
-                                    ? <ArticleTags postTag={articleTags} />
+                                    ? <ArticleTags postTag={ articleTags } />
                                     : null
                             }
                         </div>
@@ -102,8 +102,8 @@ function Article() {
                         </div>
                     </></Col1>
                     <Col2><>
-                        <Header1>{utils.htmlEntities(data?.title.rendered)}</Header1>
-                        <Header3>{utils.htmlEntities(data?.extra_meta?.article_sub_title)}</Header3>
+                        <Header1>{utils.htmlEntities(data?.title.rendered ?? '')}</Header1>
+                        <Header3>{utils.htmlEntities(data?.extra_meta?.article_sub_title ?? '')}</Header3>
                         <div
                             dangerouslySetInnerHTML={{ __html: data?.content.rendered.replaceAll('<p>&nbsp;</p>', '') || '' }}
                         />
