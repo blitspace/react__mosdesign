@@ -26,7 +26,7 @@ function ArticleItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, cat
                 </div>
                 <div className="flex flex-row gap-4 p-mos-sm bg-white/80 backdrop-blur-sm">
                     <div className="flex-grow">
-                        <h3 className="text-2xl mb-mos-xxs">{title}</h3>
+                        <h3 className="text-3xl font-normal mb-mos-xxs">{title}</h3>
                         <div className="font-light uppercase text-md mb-mos-xxs">{subtitle}</div>
                         <div className="font-light text-md"><Link to={yearUrl}>{year}</Link> | <Link to={brandUrl}>{brand}</Link></div>
                     </div>

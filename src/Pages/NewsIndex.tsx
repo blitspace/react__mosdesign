@@ -9,6 +9,7 @@ import Pager from "../Pager";
 import newsQuery from "../queries/newsQuery";
 import routes from "../utils/routes";
 import useQueryParams from "../hooks/queryParams";
+import utils from "../utils/utils";
 
 
 function NewsIndex() {
@@ -37,20 +38,22 @@ function NewsIndex() {
         <StickySection top={'[88px]'}>
             <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">
                 <div className="grid gap-6 grid-col-1 md:grid-cols-2 mb-mos-md">
+                    { newsData.isFetched && console.log(newsData.data) }
                     {
-                        newsData.isFetched && newsData.data?.newsItems?.map((news: INewsItem) => {
+                        newsData.isFetched && newsData.data?.newsItems.map((news: INewsItem) => {
                             const id = news.id;
-                            const title = news.title.rendered;
+                            const retrievedTitle = utils.htmlEntities(news.title.rendered).split(':');
+                            const title = retrievedTitle[0];
+                            const subtitle = retrievedTitle[1];
 
-                            const subtitle = '';
-                            const category = news.type;
+                            const category = news.extra_meta.news_category.name;
                             // const categoryUrl = routes.news.category();
                             const categoryUrl = '';
-                            const image = news.featured_img_url;
+                            const image = news.extra_meta.square_featured_image;
                             const articleUrl = routes.news.article(news.id);;
                             const year = news.date.split(':')[0].split('-')[0];
                             const yearUrl = routes.news.year(year);
-                            const brandName = '';
+                            const brandName = utils.htmlEntities(news.extra_meta.article_brand_name);
                             const brandUrl = '';
                             // const brandUrl = routes.brands.index(news.extra_post_meta_data?.article_brand_slug);
 

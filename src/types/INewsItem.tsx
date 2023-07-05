@@ -5,16 +5,22 @@ interface INewsItem {
     title: { rendered: string },
     status: string,
     type: string,
-    author: {
-        ID: number
-        // ...
-    },
-    content: string,
+    author:  number,
+    content: { rendered: string, },
+    excerpt: { rendered: string, },
     link: string,
     date: string,
     slug: string,
     // ...
-    extra_post_meta_data: {
+    featured_media: number,
+    featured_img_url: string,
+    terms: INewsItemTerms,
+    source: string,
+    tags: number[],
+    meta: {
+        ngg_post_thumbnail:  number,
+    },
+    extra_meta: {
         square_featured_image: string,
         q_date_name: string,
         q_date_slug: string,
@@ -22,15 +28,13 @@ interface INewsItem {
         article_sub_title: string,
         article_brand_name: string,
         article_brand_slug: string,
-    }
-    featured_image: {
-        ID: number,
-        guid: string,
+
+        news_category: {
+            name: string,
+            slug: string,
+            archive_permalink: string,
+        }
     },
-    featured_img_url: string,
-    terms: INewsItemTerms,
-    source: string,
-    tags: number[],
 }
 
 export default INewsItem;
