@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
-function BackLink({ link }: { link: string}) {
+function BackLink({ link = "#" }: { link: string}) {
     const navigate = useNavigate();
 
     return (
