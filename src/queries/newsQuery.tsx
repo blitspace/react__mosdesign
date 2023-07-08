@@ -15,14 +15,14 @@ type Params = {
   queryKey: [string, { id: number }];
 };
 
-const newsQuery = (page: string | undefined) => {
-    return useQuery<TNewsQuery, Error>(['news', 'data', page], async (params: Params) => {
+const newsQuery = (page: number = 1, max = 10) => {
+    return useQuery<TNewsQuery, Error>(['news', 'data', page], async (_params: Params) => {
         let __page = typeof page !== 'undefined'
-            ? parseInt(page) ? parseInt(page) + 1 : 0
+            ? page ? page + 1 : 0
             : null;
 
         let _page = __page ? `?page=${page}` : '';
-        let url = `${ASSETS_SOURCE}/wp-json/wp/v2/mos_news${_page}`;
+        let url = `${ASSETS_SOURCE}/wp-json/wp/v2/mos_news${_page}&per_page=${max}`;
 
         const res = await fetch(url);
         const data = await res.json();

@@ -20,6 +20,7 @@ import ArticleTags from "../ArticleTags";
 import utils from "../utils/utils";
 import tagsQuery from "../queries/tags";
 import { IPost_Tag } from "../types/INewsItemTerms";
+import NewsArticleLatestPosts from "../NewsArticleLatestPosts";
 
 type Article_Tag = {id: number, name: string};
 
@@ -110,6 +111,7 @@ function Article() {
                     </></Col2>
                 </></ArticleLayoutCols2>
             </div>
+            <NewsArticleLatestPosts />
         </StickySection>
     </>);
 }
