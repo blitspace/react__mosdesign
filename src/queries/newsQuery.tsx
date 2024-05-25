@@ -16,7 +16,7 @@ type Params = {
 };
 
 const newsQuery = (page: number = 1, max = 10) => {
-    return useQuery<TNewsQuery, Error>(['news', 'data', page], async (_params: Params) => {
+    return useQuery<TNewsQuery>(['news', 'data', page], async (_params: Params) => {
         let __page = typeof page !== 'undefined'
             ? page ? page + 1 : 0
             : null;
