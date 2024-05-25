@@ -19,7 +19,6 @@ function NewsIndex() {
     const newsData = newsQuery(page);
 
     if (newsData.isLoading) {
-        // return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
         return <PageHero
             isLoading={true}
             title="Loading..."

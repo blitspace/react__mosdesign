@@ -4,10 +4,13 @@ import IBrandItem from "../types/IBrandItem";
 
 
 const brandsQuery = () => {
-    return useQuery<IBrandItem[] | Error>(['brands', 'data'], async () => {
-        let url = `${ASSETS_SOURCE}/wp-json/posts?type=mos_brands`;
+    return useQuery<IBrandItem[]>(['brands', 'data'], async () => {
+        // let url = `${ASSETS_SOURCE}/wp-json/posts?type=mos_brands`;
+        let url = `${ASSETS_SOURCE}/wp-json/wp/v2/mos_brands`;
         const res = await fetch(url);
-        return await res.json();
+        // console.log('==>', await res.json());
+        const data = await res.json();
+        return data;
     });
 };
 
