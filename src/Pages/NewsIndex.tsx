@@ -32,44 +32,63 @@ function NewsIndex() {
             image={`${ASSETS_SOURCE}/wp-content/uploads/2015/03/News-header.jpg`}
         />
 
-        test {queryParams.get('tag')}
+        {/* test {queryParams.get('tag')} */}
 
         <StickySection top={'[88px]'}>
             <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">
                 <div className="grid gap-6 grid-col-1 md:grid-cols-2 mb-mos-md">
+                    <>
                     { newsData.isFetched && console.log(newsData.data) }
+                    </>
                     {
-                        newsData.isFetched && newsData.data?.newsItems.map((news: INewsItem) => {
+                        newsData.isFetched && newsData.data?.newsItems?.map((news: INewsItem) => {
                             const id = news.id;
-                            const retrievedTitle = utils.htmlEntities(news.title.rendered).split(':');
-                            const title = retrievedTitle[0];
-                            const subtitle = retrievedTitle[1];
+                            const tags = news.tags;
+                            // const retrievedTitle = utils.htmlEntities(news.title.rendered).split(':');
+                            const title = news?.article_title;
+                            const featureImage = news.featured_img_url;
+                            const date = news.date;
+                            const brandName = news.article_brand_name;
+                            const category = news.news_category;
+                            const year = news.quarterly_year;
+                            const subtitle = news?.article_subtitle;
 
-                            const category = news.extra_meta.news_category.name;
+                            // const category = news.extra_meta.news_category.name;
                             // const categoryUrl = routes.news.category();
-                            const categoryUrl = '';
-                            const image = news.extra_meta.square_featured_image;
-                            const articleUrl = routes.news.article(news.id);;
-                            const year = news.date.split(':')[0].split('-')[0];
-                            const yearUrl = routes.news.year(year);
-                            const brandName = utils.htmlEntities(news.extra_meta.article_brand_name);
-                            const brandUrl = '';
+                            // const categoryUrl = '';
+                            // const image = news.extra_meta.square_featured_image;
+                            // const articleUrl = routes.news.article(news.id);;
+                            // const year = news.date.split(':')[0].split('-')[0];
+                            // const yearUrl = routes.news.year(year);
+                            // const brandName = utils.htmlEntities(news.extra_meta.article_brand_name);
+                            // const brandUrl = '';
                             // const brandUrl = routes.brands.index(news.extra_post_meta_data?.article_brand_slug);
 
 
                             return (
+                                // <div key={id}>
+                                //     <p>
+                                //         {id} -- {title} -- {brandName}
+                                //     </p>
+                                //     <div>
+                                //         <img src={featureImage} />
+                                //     </div>
+                                //     <div>
+                                //         {/* {tags} */}
+                                //     </div>
+                                // </div>
                                 <NewsItemThumb
                                     key={id}
                                     title={title}
                                     subtitle={subtitle}
                                     category={category}
-                                    categoryUrl={categoryUrl}
-                                    image={image}
-                                    url={articleUrl}
+                                    // categoryUrl={categoryUrl}
+                                    image={featureImage}
+                                    // url={articleUrl}
                                     year={year}
-                                    yearUrl={yearUrl}
+                                    // yearUrl={yearUrl}
                                     brand={brandName}
-                                    brandUrl={brandUrl}
+                                    // brandUrl={brandUrl}
                                 />
                             );
                         })
