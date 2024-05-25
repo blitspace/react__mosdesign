@@ -11,7 +11,11 @@ function Brands() {
     const headerImg = `${ASSETS_SOURCE}/wp-content/uploads/2014/12/Brands-header.jpg`
 
     if (brandsData.isLoading) {
-        return <div className="w-full mx-auto max-w-mos-content px-mos-md py-mos-md">Loading</div>;
+        return (<PageHero
+            isLoading={true}
+            title="Loading..."
+            image={`${ASSETS_SOURCE}/wp-content/uploads/2015/03/News-header.jpg`}
+        />);
     }
 
     if (brandsData.isFetched) {
@@ -23,14 +27,11 @@ function Brands() {
             title="Our Brands"
             image={headerImg}
         />
+
         <StickySection top={'[88px]'}>
             <div className="w-full min-h-screen mx-auto max-w-mos-content px-mos-md py-mos-md">
                 <div className="w-full mx-auto max-w-mos-content">
                     <div className="grid gap-6 grid-col-1 md:grid-cols-2 mb-mos-md">
-                        {/* {brandsData.isFetched && brandsData?.data?.map(i => <p>{i.id}</p>)} */}
-                        {/* <hr /> */}
-                        {/* {brandsData.isFetched && JSON.stringify(brandsData?.data)} */}
-                        {/* {brandsData.isFetched && brandsData?.data?.map(i: IBrandItem[] => console.log(i))} */}
                         {brandsData.isFetched && brandsData?.data?.map((i: IBrandItem) => (
                             <BrandItemThumb
                                 key={i.id}
