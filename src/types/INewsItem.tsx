@@ -1,7 +1,7 @@
 import INewsItemTerms from "./INewsItemTerms";
 
 interface INewsItem {
-    id?: number,
+    id: number,
     title?: { rendered: string },
     status?: string,
     type?: string,
@@ -11,11 +11,14 @@ interface INewsItem {
     link?: string,
     date?: string,
     slug?: string,
+
     // ...
     featured_media?: number,
     featured_img_url?: string,
     terms?: INewsItemTerms,
     article_brand_name?: string,
+    article_title?: string,
+    article_subtitle?: string,
     source?: string,
     tags?: number[],
     meta?: {
@@ -23,6 +26,7 @@ interface INewsItem {
     },
     news_category?: string,
     quarterly_year?: string,
+
     extra_meta?: {
         square_featured_image?: string,
         q_date_name?: string,

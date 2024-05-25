@@ -16,7 +16,9 @@ type NewsItemThumbProps = {
 }
 
 function NewsItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, category, categoryUrl, image, url, mode }: NewsItemThumbProps) {
-    let titleBg = mode !== 'SIMPLE' ? 'backdrop-blur-sm bg-white/60' : '';
+    let titleBg = mode !== 'SIMPLE' ? 'backdrop-blur-sm bg-white/80' : '';
+    // let titleClasses = 'overflow-ellipsis overflow-hidden whitespace-nowrap w-1/3';
+    let titleClasses = '';
 
     return (
         <div className="cursor-pointer relative flex flex-col w-full aspect-square" title={(`${title} | ${subtitle}`) || ''}>
@@ -43,20 +45,20 @@ function NewsItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, catego
                 </div>
             )}
 
-            <div className={`absolute bottom-0 flex flex-row gap-4 p-mos-sm ${titleBg}`}>
+            <div className={`absolute w-full bottom-0 flex flex-row gap-4 p-mos-sm ${titleBg}`}>
                 <div className="flex-grow">
                     <h3
-                        className="text-3xl font-normal mb-mos-xxs"
+                        className={`text-2xl font-normal mb-mos-xxs ${titleClasses}`}
                     >{title}</h3>
                     <div
-                        className="font-light uppercase text-md mb-mos-xxs"
+                        className={`font-light uppercase text-md mb-mos-xxs ${titleClasses}`}
                     >{subtitle}</div>
                     <div
                         className="font-light text-md"
                     ><Link to={yearUrl ?? ''}>{year}</Link> | <Link to={brandUrl ?? ''}>{brand}</Link></div>
                 </div>
 
-                <div className="w-[50px] flex flex-col justify-center">
+                <div className="basis-[50px] flex-shrink-0 flex flex-col justify-center">
                     <Link
                         className={`flex flex-col items-center justify-center w-full
                             transition-colors border-2 rounded-full group

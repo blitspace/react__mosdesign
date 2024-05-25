@@ -45,13 +45,13 @@ function NewsIndex() {
                             const id = news.id;
                             const tags = news.tags;
                             // const retrievedTitle = utils.htmlEntities(news.title.rendered).split(':');
-                            const title = news.title?.rendered;
+                            const title = news?.article_title;
                             const featureImage = news.featured_img_url;
                             const date = news.date;
                             const brandName = news.article_brand_name;
                             const category = news.news_category;
                             const year = news.quarterly_year;
-                            // const subtitle = retrievedTitle[1];
+                            const subtitle = news?.article_subtitle;
 
                             // const category = news.extra_meta.news_category.name;
                             // const categoryUrl = routes.news.category();
@@ -80,7 +80,7 @@ function NewsIndex() {
                                 <NewsItemThumb
                                     key={id}
                                     title={title}
-                                    // subtitle={subtitle}
+                                    subtitle={subtitle}
                                     category={category}
                                     // categoryUrl={categoryUrl}
                                     image={featureImage}
