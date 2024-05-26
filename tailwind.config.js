@@ -69,6 +69,10 @@ export default {
       });
     },
   ],
+  safelist: [
+    'top-0',
+    'top-[88px]',
+  ],
 };
 
 console.log(defaultTheme);
