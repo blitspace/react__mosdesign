@@ -4,19 +4,13 @@ import INewsItem from "../types/INewsItem";
 import { ASSETS_SOURCE } from "../settings";
 
 type TNewsQuery = {
-    data: {
-        newsItems: INewsItem[],
-        totalItems: number,
-        totalPages: number
-    }
-};
-
-type Params = {
-  queryKey: [string, { id: number }];
+    newsItems?: INewsItem[],
+    totalItems?: any,
+    totalPages?: any,
 };
 
 const newsQuery = (page: number = 1, max = 10) => {
-    return useQuery<TNewsQuery>(['news', 'data', page], async (_params: Params) => {
+    return useQuery<TNewsQuery>(['news', 'data', page], async () => {
         let __page = typeof page !== 'undefined'
             ? page ? page + 1 : 0
             : null;
@@ -26,11 +20,14 @@ const newsQuery = (page: number = 1, max = 10) => {
 
         const res = await fetch(url);
         const data = await res.json();
+
+        const totalItems = res?.headers?.get('X-Wp-Total');
+        const totalPages = res?.headers?.get('X-Wp-Totalpages');
         
         return {
             newsItems: data,
-            totalItems: res.headers.get('X-Wp-Total'),
-            totalPages: res.headers.get('X-Wp-Totalpages'),
+            totalItems: totalItems,
+            totalPages: totalPages,
         };
     });
 };

@@ -64,7 +64,7 @@ function NewsItemThumb({ title, subtitle, brand, brandUrl, year, yearUrl, catego
                             transition-colors border-2 rounded-full group
                             border-mos-footer aspect-square hover:bg-mos-red hover:border-mos-red
                         `}
-                        to={url}
+                        to={url ?? ''}
                     >
                         <ChevronRightIcon fontSize="large" className="text-mos-footer group-hover:text-white" />
                     </Link>

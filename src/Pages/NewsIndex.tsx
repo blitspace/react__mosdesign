@@ -125,7 +125,11 @@ function NewsIndex() {
                         // );
                     })} */}
                 </div>
-                <Pager data={[...Array(parseInt(newsData.data?.totalPages)).keys()]} currentPage={parseInt(page || '1')} url="/news" />
+                <Pager
+                    data={[...Array(parseInt(newsData.data?.totalPages)).keys()]}
+                    currentPage={parseInt(page || '1')}
+                    url="/news"
+                />
             </div>
         </StickySection>
     </>);
