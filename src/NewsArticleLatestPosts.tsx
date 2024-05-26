@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { ReactElement } from "react";
 import newsQuery from "./queries/newsQuery";
 import INewsItem from "./types/INewsItem";

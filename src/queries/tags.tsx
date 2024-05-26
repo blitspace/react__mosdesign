@@ -4,7 +4,7 @@ import IBrandItem from "../types/IBrandItem";
 
 
 const tagsQuery = () => {
-    return useQuery<IBrandItem[] | Error>(['tags', 'data'], async () => {
+    return useQuery<IBrandItem[]>(['tags', 'data'], async () => {
         let url = `${ASSETS_SOURCE}/wp-json/blit/v1/all-tags`;
         const res = await fetch(url);
         return await res.json();

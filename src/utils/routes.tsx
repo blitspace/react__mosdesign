@@ -25,7 +25,7 @@ class BaseRouteClass implements IRoutes {
 }
 
 class News extends BaseRouteClass {
-    index(ID: string | number): string {
+    index(ID: string | number | undefined): string {
         return `/${this.pathPlural}`;
     }
 

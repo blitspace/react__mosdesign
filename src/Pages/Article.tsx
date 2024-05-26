@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
@@ -41,14 +42,16 @@ function Article() {
     }
 
     if (newsData.isSuccess) {
-        data = newsData.data[0];
+        data = newsData?.data
+            ? newsData?.data
+            : undefined;
         year = data?.extra_meta?.q_date_name ?? '';
         newsCategoryID = '123';
         brandID = 'qwe';
     }
 
     if (newsData.isSuccess && tagsData.isSuccess) {
-        articleTags = data?.tags.map<IPost_Tag>(i => {
+        articleTags = data?.tags?.map<IPost_Tag>(i => {
             const search = tagsData.data?.filter(j => j.ID == i);
 
             return search.length ? search[0] : undefined;

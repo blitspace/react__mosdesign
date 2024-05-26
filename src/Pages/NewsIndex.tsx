@@ -52,12 +52,12 @@ function NewsIndex() {
                             const category = news.news_category;
                             const year = news.quarterly_year;
                             const subtitle = news?.article_subtitle;
+                            const articleUrl = routes.news.article(news.id);
 
                             // const category = news.extra_meta.news_category.name;
                             // const categoryUrl = routes.news.category();
                             // const categoryUrl = '';
                             // const image = news.extra_meta.square_featured_image;
-                            // const articleUrl = routes.news.article(news.id);;
                             // const year = news.date.split(':')[0].split('-')[0];
                             // const yearUrl = routes.news.year(year);
                             // const brandName = utils.htmlEntities(news.extra_meta.article_brand_name);
@@ -84,7 +84,7 @@ function NewsIndex() {
                                     category={category}
                                     // categoryUrl={categoryUrl}
                                     image={featureImage}
-                                    // url={articleUrl}
+                                    url={articleUrl}
                                     year={year}
                                     // yearUrl={yearUrl}
                                     brand={brandName}
@@ -125,7 +125,11 @@ function NewsIndex() {
                         // );
                     })} */}
                 </div>
-                <Pager data={[...Array(parseInt(newsData.data?.totalPages)).keys()]} currentPage={parseInt(page || '1')} url="/news" />
+                <Pager
+                    data={[...Array(parseInt(newsData.data?.totalPages)).keys()]}
+                    currentPage={parseInt(page || '1')}
+                    url="/news"
+                />
             </div>
         </StickySection>
     </>);
