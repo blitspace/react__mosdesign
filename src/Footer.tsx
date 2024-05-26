@@ -8,9 +8,9 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import { ASSETS_SOURCE } from "./settings";
 
-function Footer() {
+function Footer({ sticky = true }) {
     return (
-        <section className="sticky flex flex-col justify-between min-h-screen text-white bg-mos-footer pb-mos-md top-40">
+        <section className={`${sticky ? 'sticky' : ''} flex flex-col justify-between min-h-screen text-white bg-mos-footer pb-mos-md top-40`}>
             {/* TODO: find way to replace hardcoded value */}
             <div className="sticky top-below-nav">
                 <button className="w-full text-2xl py-mos-sm bg-mos-red">Come and visit us&nbsp;<KeyboardArrowRightIcon /></button>

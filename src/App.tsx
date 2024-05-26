@@ -18,7 +18,7 @@ function App({ enableScrollToTop = true, children }: { enableScrollToTop?: boole
       <FullScreenNav />
       <TopBar />
       { children }
-      <Footer />
+      {/* <Footer sticky={false} /> */}
     </div>
   )
 }
