@@ -6,7 +6,7 @@ export { fullScreenMenuOpen };
 const CONFIG = {
     menus: [
         { label: 'Home', url: '/' },
-        { label: 'News', url: routes.news.index() },
+        { label: 'News', url: routes.news.index(0) },
         { label: 'Brands', url: '/brands' },
         { label: 'About', url: '/about' },
         { label: 'Press', url: '#' },

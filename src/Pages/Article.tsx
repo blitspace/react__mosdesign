@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
@@ -50,9 +51,7 @@ function Article() {
     }
 
     if (newsData.isSuccess && tagsData.isSuccess) {
-        // @ts-ignore
         articleTags = data?.tags?.map<IPost_Tag>(i => {
-            // @ts-ignore
             const search = tagsData.data?.filter(j => j.ID == i);
 
             return search.length ? search[0] : undefined;

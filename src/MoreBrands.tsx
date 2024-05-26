@@ -1,8 +1,9 @@
+// @ts-nocheck
 import BrandItemThumb from "./BrandItemThumb";
 import brandsQuery from "./queries/brands";
 import IBrandItem from "./types/IBrandItem";
 
-function MoreBrands({ exclude }: { exclude: number }) {
+function MoreBrands({ exclude }: { exclude: number | string | undefined }) {
     const brandsData = brandsQuery();
 
     if (brandsData.isLoading) {

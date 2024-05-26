@@ -9,10 +9,10 @@ type TNewsQuery = {
     totalPages?: any,
 };
 
-const newsQuery = (page: number = 1, max = 10) => {
+const newsQuery = (page: any = 1, max = 10) => {
     return useQuery<TNewsQuery>(['news', 'data', page], async () => {
         let __page = typeof page !== 'undefined'
-            ? page ? page + 1 : 0
+            ? page ? parseInt(page) + 1 : 0
             : null;
 
         let _page = __page ? `?page=${page}` : '';
