@@ -12,9 +12,9 @@ function Pager({ data, url, currentPage }: { data: number[], url: string, curren
                     return <li key={i}>
                         <Link
                             className={`flex flex-row items-center justify-center w-10 h-10 rounded-full ${bg}
-                            hover:bg-mos-red hover:border-mos-red hover:text-white`}
-                            to={`${url}/${i}`}
-                        >{i}{active}</Link>
+                                hover:bg-mos-red hover:border-mos-red hover:text-white`}
+                            to={`${url}/${i + 1}`}
+                        >{i + 1}{active}</Link>
                     </li>
                 })}
             </ul>

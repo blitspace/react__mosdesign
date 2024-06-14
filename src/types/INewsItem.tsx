@@ -1,34 +1,47 @@
 import INewsItemTerms from "./INewsItemTerms";
 
 interface INewsItem {
-    ID: number,
-    title: string,
-    status: string,
-    type: string,
-    author: {
-        ID: number
-        // ...
-    },
-    content: string,
-    link: string,
-    date: string,
-    slug: string,
+    id: number,
+    title?: { rendered: string },
+    status?: string,
+    type?: string,
+    author?:  number,
+    content?: { rendered: string, },
+    excerpt?: { rendered: string, },
+    link?: string,
+    date?: string,
+    slug?: string,
+
     // ...
-    extra_post_meta_data: {
-        square_featured_image: string,
-        q_date_name: string,
-        q_date_slug: string,
-        article_title: string,
-        article_sub_title: string,
-        article_brand_name: string,
-        article_brand_slug: string,
-    }
-    featured_image: {
-        ID: number,
-        guid: string,
+    featured_media?: number,
+    featured_img_url?: string,
+    terms?: INewsItemTerms,
+    article_brand_name?: string,
+    article_title?: string,
+    article_subtitle?: string,
+    source?: string,
+    tags?: number[],
+    meta?: {
+        ngg_post_thumbnail?:  number,
     },
-    terms: INewsItemTerms,
-    source: string,
+    news_category?: string,
+    quarterly_year?: string,
+
+    extra_meta?: {
+        square_featured_image?: string,
+        q_date_name?: string,
+        q_date_slug?: string,
+        article_title?: string,
+        article_sub_title?: string,
+        article_brand_name?: string,
+        article_brand_slug?: string,
+
+        news_category?: {
+            name?: string,
+            slug?: string,
+            archive_permalink?: string,
+        }
+    },
 }
 
 export default INewsItem;

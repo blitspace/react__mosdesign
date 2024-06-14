@@ -1,0 +1,7 @@
+.ngg-galleryoverview .dotstyle.dotstyle-fillin {
+  display: none !important;
+}
+
+.ngg-galleryoverview .inline-article-gallery li {
+  margin-bottom: 1em;
+}
